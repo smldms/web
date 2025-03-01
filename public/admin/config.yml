@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: smldms/web
   branch: main
+  open_authoring: true
+
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
