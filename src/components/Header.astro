@@ -1,0 +1,197 @@
+---
+---
+
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/" class="glitch" data-text="SMLDMS">SMLDMS</a>
+      </div>
+      <nav>
+        <button id="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="main-menu">
+          <li><a href="#generative-art" data-category="generative-art">Generative Art</a></li>
+          <li><a href="#runtime-art" data-category="runtime-art">Runtime Art</a></li>
+          <li><a href="#post-photography" data-category="post-photography">Post Photography</a></li>
+          <li><a href="#platform" data-category="platform">Platform</a></li>
+          <li><a href="#dj-set" data-category="dj-set">DJ Set</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainMenu = document.getElementById('main-menu');
+
+  menuToggle?.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    mainMenu?.classList.toggle('active');
+  });
+
+  // Category filtering
+  const categoryLinks = document.querySelectorAll('nav a[data-category]');
+  
+  categoryLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Remove active class from all links
+      categoryLinks.forEach(l => l.classList.remove('active'));
+      
+      // Add active class to clicked link
+      link.classList.add('active');
+      
+      const category = link.getAttribute('data-category');
+      const targetElement = document.querySelector(link.getAttribute('href'));
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      // Filter projects
+      filterProjects(category);
+    });
+  });
+
+  function filterProjects(category) {
+    const projects = document.querySelectorAll('.project-item');
+    
+    projects.forEach(project => {
+      const projectCategories = project.getAttribute('data-categories')?.split(',') || [];
+      
+      if (category === 'all' || projectCategories.includes(category)) {
+        project.style.display = 'block';
+      } else {
+        project.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  #main-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  #main-menu a {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+
+  #main-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  #main-menu a:hover::after,
+  #main-menu a.active::after {
+    width: 100%;
+  }
+
+  #menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 101;
+  }
+
+  #menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    margin-bottom: 6px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  #menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  @media (max-width: 768px) {
+    #menu-toggle {
+      display: block;
+    }
+
+    #main-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.3s ease;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    #main-menu.active {
+      right: 0;
+    }
+
+    #main-menu a {
+      font-size: 1.5rem;
+    }
+  }
+</style>
