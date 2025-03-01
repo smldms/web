@@ -2,8 +2,7 @@ backend:
   name: github
   repo: smldms/web
   branch: main
-  open_authoring: true
-
+  publish_mode: editorial_workflow
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -16,15 +15,32 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { 
-          label: "Categories", 
-          name: "categories", 
-          widget: "select", 
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "select",
           multiple: true,
-          options: ["generative-art", "runtime-art", "post-photography", "platform", "dj-set"]
+          options:
+            [
+              "generative-art",
+              "runtime-art",
+              "post-photography",
+              "platform",
+              "dj-set",
+            ],
         }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Cover Image", name: "coverImage", widget: "image" }
-      - { label: "External Link", name: "externalLink", widget: "string", required: false }
-      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - {
+          label: "External Link",
+          name: "externalLink",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Featured",
+          name: "featured",
+          widget: "boolean",
+          default: false,
+        }
       - { label: "Date", name: "date", widget: "datetime" }
