@@ -1,5 +1,5 @@
 ---
-title: Ethereum
+title: Bitcoin Culture
 categories:
   - generative-art
   - post-photography
@@ -7,7 +7,7 @@ categories:
   - runtime-art
   - dj-set
 description: Une petite description du projet c'est indispensable
-coverImage: /images/uploads/encoded-tapestry_ookotnvuw3efsjj4nrdhdkgrcpexqptkscybz4s7xjfkaujx4vy.png
+coverImage: /images/uploads/minimal-shift_oo5wboraxczvzuagbmf4i9o9jjqv6t1yasnvpjzpqyh3jcbcxjg.png
 gallery:
   - /images/uploads/minimal-shift_oo5wboraxczvzuagbmf4i9o9jjqv6t1yasnvpjzpqyh3jcbcxjg.png
   - /images/uploads/_h1_burned-land__h1__🎨-classic-gray-3_oomsem8ddmbi9ksyd1ksrqzhxdwrrfwfrix59egvagxzdyka2rp.png
