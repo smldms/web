@@ -1,5 +1,5 @@
 ---
-title: Ordinals
+title: Ethereum
 categories:
   - generative-art
   - post-photography
