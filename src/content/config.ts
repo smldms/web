@@ -25,6 +25,7 @@ const soundtracksCollection = defineCollection({
     date: z.date(),
     type: z.enum(['track', 'dj-set', 'collaboration']),
     soundcloudUrl: z.string(),
+    youtubeUrl: z.string().optional(),
     coverImage: z.string(),
     tags: z.array(z.string()).default(['electronic']),
     featured: z.boolean().default(false),

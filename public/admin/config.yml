@@ -60,7 +60,8 @@ collections:
         }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Contenu", name: "body", widget: "markdown" }
-     
+      
+    collections:
   - name: "soundtracks"
     label: "Pistes Audio"
     folder: "src/content/soundtracks"
@@ -76,7 +77,20 @@ collections:
           widget: "select", 
           options: ["track", "dj-set", "collaboration"] 
         }
-      - { label: "URL Soundcloud", name: "soundcloudUrl", widget: "string" }
+      - { 
+          label: "URL Soundcloud", 
+          name: "soundcloudUrl", 
+          widget: "string", 
+          required: false,
+          hint: "Obligatoire pour les tracks et collaborations, optionnel pour les DJ sets"
+        }
+      - { 
+          label: "URL YouTube", 
+          name: "youtubeUrl", 
+          widget: "string", 
+          required: false,
+          hint: "Optionnel pour tous les types, mais recommandé pour les DJ sets"
+        }
       - { label: "Image de couverture", name: "coverImage", widget: "image" }
       - { label: "Tags", name: "tags", widget: "list", default: ["electronic"] }
       - { label: "Mis en avant", name: "featured", widget: "boolean", default: false }

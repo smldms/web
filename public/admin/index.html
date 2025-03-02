@@ -18,5 +18,72 @@
     // Custom preview styles
     CMS.registerPreviewStyle("/admin/preview.css");
   </script>
+   <!-- Soundcloud widget API -->
+   <script src="https://w.soundcloud.com/player/api.js"></script>
+    
+   <!-- Custom preview for Soundcloud -->
+   <script>
+     const SoundcloudPreview = createClass({
+       render: function() {
+         const {value, field} = this.props;
+         const url = value || '';
+         
+         if (!url) {
+           return h('div', {}, 'Entrez une URL Soundcloud');
+         }
+         
+         // Iframe avec le lecteur Soundcloud
+         return h('iframe', {
+           width: '100%',
+           height: '166',
+           scrolling: 'no',
+           frameborder: 'no',
+           src: `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true`
+         });
+       }
+     });
+     
+     // Enregistrer le composant de prévisualisation personnalisé
+     CMS.registerPreviewTemplate('soundcloud-preview', SoundcloudPreview);
+     
+     // Custom preview for YouTube
+     const YouTubePreview = createClass({
+       render: function() {
+         const {value, field} = this.props;
+         const url = value || '';
+         
+         if (!url) {
+           return h('div', {}, 'Entrez une URL YouTube');
+         }
+         
+         // Extraire l'ID de la vidéo YouTube
+         const getYoutubeVideoId = (url) => {
+           if (!url) return null;
+           const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+           const match = url.match(regExp);
+           return (match && match[2].length === 11) ? match[2] : null;
+         };
+         
+         const videoId = getYoutubeVideoId(url);
+         
+         if (!videoId) {
+           return h('div', {}, 'URL YouTube invalide');
+         }
+         
+         // Iframe avec le lecteur YouTube
+         return h('iframe', {
+           width: '100%',
+           height: '315',
+           src: `https://www.youtube.com/embed/${videoId}`,
+           frameborder: '0',
+           allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+           allowfullscreen: true
+         });
+       }
+     });
+     
+     // Enregistrer le composant de prévisualisation personnalisé
+     CMS.registerPreviewTemplate('youtube-preview', YouTubePreview);
+   </script>
 </body>
 </html>

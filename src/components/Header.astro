@@ -4,21 +4,22 @@
 <header>
   <div class="container">
     <div class="header-content">
-      <div class="logo">
-        <a href="/" class="glitch" data-text="SMLDMS">SMLDMS</a>
-      </div>
+      <a href="/" class="logo glitch" data-text="SMLDMS">SMLDMS</a>
+      
+      <button id="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
       <nav>
-        <button id="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
         <ul id="main-menu">
-          <li><a href="#generative-art" data-category="generative-art">Generative Art</a></li>
-          <li><a href="#runtime-art" data-category="runtime-art">Runtime Art</a></li>
-          <li><a href="#post-photography" data-category="post-photography">Post Photography</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/category/generative-art">Generative Art</a></li>
+          <li><a href="/category/runtime-art">Runtime Art</a></li>
+          <li><a href="/category/post-photography">Post Photography</a></li>
           <li class="has-submenu">
-            <a href="#" class="platform-toggle">Platform</a>
+            <a href="#">Platform</a>
             <ul class="submenu">
               <li><a href="https://www.fxhash.xyz/" target="_blank" rel="noopener noreferrer">Fxhash</a></li>
               <li><a href="https://gamma.io/" target="_blank" rel="noopener noreferrer">Gamma.io</a></li>
@@ -35,62 +36,58 @@
 </header>
 
 <script>
-  // Mobile menu toggle
-  const menuToggle = document.getElementById('menu-toggle');
-  const mainMenu = document.getElementById('main-menu');
-
-  menuToggle?.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    mainMenu?.classList.toggle('active');
-  });
-
-  // Platform submenu toggle
-  const platformToggle = document.querySelector('.platform-toggle');
-  
-  platformToggle?.addEventListener('click', (e) => {
-    e.preventDefault();
-    const parent = platformToggle.parentElement;
-    parent?.classList.toggle('submenu-active');
-  });
-
-  // Category filtering
-  const categoryLinks = document.querySelectorAll('nav a[data-category]');
-  
-  categoryLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      
-      // Remove active class from all links
-      categoryLinks.forEach(l => l.classList.remove('active'));
-      
-      // Add active class to clicked link
-      link.classList.add('active');
-      
-      const category = link.getAttribute('data-category');
-      const targetElement = document.querySelector(link.getAttribute('href'));
-      
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-      
-      // Filter projects
-      filterProjects(category);
-    });
-  });
-
-  function filterProjects(category) {
-    const projects = document.querySelectorAll('.project-item');
+  // Gestion du menu mobile
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainMenu = document.getElementById('main-menu');
     
-    projects.forEach(project => {
-      const projectCategories = project.getAttribute('data-categories')?.split(',') || [];
-      
-      if (category === 'all' || projectCategories.includes(category)) {
-        project.style.display = 'block';
-      } else {
-        project.style.display = 'none';
+    if (menuToggle && mainMenu) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mainMenu.classList.toggle('active');
+      });
+    }
+    
+    // Gestion des sous-menus
+    const submenus = document.querySelectorAll('.has-submenu');
+    
+    submenus.forEach(submenu => {
+      submenu.addEventListener('click', (e) => {
+        // Si on clique sur le lien parent (pas sur un sous-menu)
+        if (e.target === submenu.querySelector('a')) {
+          e.preventDefault();
+          submenu.classList.toggle('submenu-active');
+          
+          // Fermer les autres sous-menus
+          submenus.forEach(other => {
+            if (other !== submenu) {
+              other.classList.remove('submenu-active');
+            }
+          });
+        }
+      });
+    });
+    
+    // Fermer les sous-menus quand on clique ailleurs
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.has-submenu')) {
+        submenus.forEach(submenu => {
+          submenu.classList.remove('submenu-active');
+        });
       }
     });
-  }
+    
+    // Marquer le lien actif
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('#main-menu a');
+    
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href');
+      if (linkPath && currentPath === linkPath) {
+        link.classList.add('active');
+      }
+    });
+  });
 </script>
 
 <style>
@@ -100,22 +97,23 @@
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 1.5rem 0;
-    background: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74, 108, 247, 0.3);
   }
 
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0;
   }
 
-  .logo a {
-    font-size: 2rem;
+  .logo {
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   nav {
@@ -127,13 +125,16 @@
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
   }
 
   #main-menu a {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
     position: relative;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
   }
 
   #main-menu a::after {

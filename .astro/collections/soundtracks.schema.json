@@ -37,6 +37,9 @@
         "soundcloudUrl": {
           "type": "string"
         },
+        "youtubeUrl": {
+          "type": "string"
+        },
         "coverImage": {
           "type": "string"
         },
