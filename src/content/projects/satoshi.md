@@ -8,6 +8,7 @@ gallery:
   - /images/uploads/lxst_child_foggy_red_and_purple_hue_neon_extreme_brutalism_clou_0df11c47-adbd-405c-9bca-f17380d46565.png
   - /images/uploads/ordinals_genesis_glitch_by_smldms-1-.png
   - /images/uploads/satoshi-s-clock-runtime-ordinals-art-by-smldms-3-.png
+youtubeVideo: https://www.youtube.com/watch?v=H2BEsJ3gOrA
 featured: false
 date: 2025-03-02T03:47:00.000Z
 ---
