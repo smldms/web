@@ -4,66 +4,13 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import ProjectList from '../components/ProjectList.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection } from "astro:content";
 
-// Mock data for projects - this would come from Netlify CMS in production
-const projects = [
-  {
-    title: "Generative Patterns",
-    description: "Algorithmic art exploring geometric patterns and randomness",
-    coverImage: "https://images.unsplash.com/photo-1550063873-ab792950096b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2VuZXJhdGl2ZSUyMGFydHxlbnwwfHwwfHx8MA%3D%3D",
-    categories: ["generative-art"],
-    externalLink: "#"
-  },
-  {
-    title: "Digital Landscapes",
-    description: "Procedurally generated landscapes using custom algorithms",
-    coverImage: "https://images.unsplash.com/photo-1633623915882-5f02f306e174?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdlbmVyYXRpdmUlMjBhcnR8ZW58MHx8MHx8fDA%3D",
-    categories: ["generative-art"],
-    externalLink: "#"
-  },
-  {
-    title: "Reactive Visuals",
-    description: "Audio-reactive visual system for live performances",
-    coverImage: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29kZSUyMGFydHxlbnwwfHwwfHx8MA%3D%3D",
-    categories: ["runtime-art"],
-    externalLink: "#"
-  },
-  {
-    title: "Urban Glitches",
-    description: "Experimental photography series exploring urban environments through digital manipulation",
-    coverImage: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2xpdGNoJTIwYXJ0fGVufDB8fDB8fHww",
-    categories: ["post-photography"],
-    externalLink: "#"
-  },
-  {
-    title: "Digital Decay",
-    description: "Exploring the concept of digital entropy through manipulated photography",
-    coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2xpdGNoJTIwYXJ0fGVufDB8fDB8fHww",
-    categories: ["post-photography"],
-    externalLink: "#"
-  },
-  {
-    title: "NFT Collection",
-    description: "Limited edition generative art collection released as NFTs",
-    coverImage: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmZ0fGVufDB8fDB8fHww",
-    categories: ["platform"],
-    externalLink: "#"
-  },
-  {
-    title: "Techno Visuals",
-    description: "Custom visuals created for techno DJ set",
-    coverImage: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGolMjBzZXR8ZW58MHx8MHx8fDA%3D",
-    categories: ["dj-set"],
-    externalLink: "#"
-  },
-  {
-    title: "Interactive Installation",
-    description: "Motion-reactive installation for gallery exhibition",
-    coverImage: "https://images.unsplash.com/photo-1573167507387-6b4b98cb7c13?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW50ZXJhY3RpdmUlMjBhcnR8ZW58MHx8MHx8fDA%3D",
-    categories: ["runtime-art"],
-    externalLink: "#"
-  }
-];
+const projects = await getCollection("projects");
+
+// Vérifie que les projets sont bien récupérés
+console.log("📂 Projets récupérés depuis Astro :", projects);
+
 
 const categories = [
   { id: "generative-art", label: "Generative Art" },
@@ -78,12 +25,16 @@ const categories = [
   <Header />
   <Hero />
   
-  {categories.map(category => (
+{categories.map(category => {
+  console.log("🔍 Catégorie envoyée à ProjectList :", category.id);
+  return (
     <ProjectList 
       projects={projects} 
       category={category.id} 
     />
-  ))}
+  );
+})}
+
   
   <Footer />
 </Layout>

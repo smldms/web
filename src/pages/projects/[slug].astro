@@ -1,0 +1,89 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// Générer les pages dynamiques
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+// Récupérer le projet en cours
+const { project } = Astro.props;
+---
+
+<Layout>
+  <section class="project-detail">
+    <div class="container">
+      <h1>{project.data.title}</h1>
+      <img src={project.data.coverImage} alt={project.data.title} class="project-image" />
+      <p>{project.data.description}</p>
+
+      <!-- 🔥 Intégrer le texte enrichi -->
+      <div class="project-content">
+        {project.render()}
+      </div>
+
+      <!-- 🔥 Afficher la galerie -->
+      {project.data.gallery && (
+        <div class="project-gallery">
+          {project.data.gallery.map(image => (
+            <img src={image} alt="Galerie d'images" class="gallery-image" />
+          ))}
+        </div>
+      )}
+
+      {project.data.externalLink && (
+        <a href={project.data.externalLink} target="_blank" class="project-link">
+          Voir le projet en ligne
+        </a>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .project-detail {
+    padding: 4rem 0;
+    text-align: center;
+  }
+  .project-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .project-content {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .gallery-image {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+  }
+  .project-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  .project-link:hover {
+    background-color: var(--color-accent-dark);
+  }
+</style>

@@ -1,8 +1,30 @@
 ---
+console.log("📌 Props reçus dans ProjectList :", Astro.props);
+
+// Déstructuration correcte des props
 const { projects, category } = Astro.props;
-const filteredProjects = category === 'all' 
-  ? projects 
-  : projects.filter(project => project.categories.includes(category));
+
+console.log("📌 Category après destructuration :", category);
+console.log("📌 Projects après destructuration :", projects);
+
+// Vérification si `category` est bien défini
+if (!category) {
+  console.error("❌ ERREUR : 'category' est undefined dans ProjectList !");
+}
+
+// Vérification si chaque projet a bien un tableau de catégories
+const filteredProjects = projects.filter(project => {
+  console.log("🔍 Projet en cours de vérification :", project);
+
+  if (!Array.isArray(project.data.categories)) {
+    console.error(`❌ ERREUR : Les catégories de '${project.data.title}' ne sont pas un tableau !`, project.data.categories);
+    return false;
+  }
+
+  return project.data.categories.includes(category);
+});
+
+console.log("✅ Projets filtrés :", filteredProjects);
 ---
 
 <section id={category} class="project-section">
@@ -11,30 +33,35 @@ const filteredProjects = category === 'all'
       {category.replace('-', ' ')}
     </h2>
     <div class="projects-grid">
-      {filteredProjects.map((project) => (
-        <div class="project-item" data-categories={project.categories.join(',')}>
-          <div class="project-image-container">
-            <img 
-              src={project.coverImage} 
-              alt={project.title} 
-              class="project-image"
-              loading="lazy"
-            />
-            <div class="project-overlay">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              {project.externalLink && (
-                <a href={project.externalLink} target="_blank" rel="noopener noreferrer" class="project-link">
-                  View Project
-                </a>
-              )}
-            </div>
+
+{filteredProjects.length > 0 ? (
+  filteredProjects.map((project) => (
+    <a href={`/projects/${project.slug}`} class="project-item-link">
+      <div class="project-item" data-categories={project.data.categories?.join(', ') || ''}>
+        <div class="project-image-container">
+          <img 
+            src={project.data.coverImage} 
+            alt={project.data.title} 
+            class="project-image"
+            loading="lazy"
+          />
+          <div class="project-overlay">
+            <h3>{project.data.title}</h3>
+            <p>{project.data.description}</p>
           </div>
         </div>
-      ))}
+      </div>
+    </a>
+  ))
+) : (
+  <p>Aucun projet trouvé dans cette catégorie.</p>
+)}
+
+      
     </div>
   </div>
 </section>
+
 
 <style>
   .project-section {
