@@ -1,5 +1,5 @@
 ---
-title: Bitcoin Culture
+title: Tezos is dead
 categories:
   - generative-art
   - post-photography
@@ -7,7 +7,7 @@ categories:
   - runtime-art
   - dj-set
 description: Une petite description du projet c'est indispensable
-coverImage: /images/uploads/minimal-shift_oo5wboraxczvzuagbmf4i9o9jjqv6t1yasnvpjzpqyh3jcbcxjg.png
+coverImage: /images/uploads/polar_oozwnrn5gfpb1pkunurj8ujp5n74fipm8jhktxjhvmjc2g8sxfg.png
 gallery:
   - /images/uploads/minimal-shift_oo5wboraxczvzuagbmf4i9o9jjqv6t1yasnvpjzpqyh3jcbcxjg.png
   - /images/uploads/_h1_burned-land__h1__🎨-classic-gray-3_oomsem8ddmbi9ksyd1ksrqzhxdwrrfwfrix59egvagxzdyka2rp.png
