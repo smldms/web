@@ -15,11 +15,13 @@ export async function getStaticPaths() {
 // Récupérer le projet en cours
 const { project } = Astro.props;
 
-// 🔍 On récupère le contenu Markdown en **attendant la promesse**
-const { html } = await project.render();
+console.log("🔍 Debug : project.render()", project.render);
 
-console.log("📌 Contenu HTML du projet :", html);
-console.log("📌 Données du projet :", project.data);
+const renderedProject = await project.render();
+console.log("📌 Contenu HTML du projet :", renderedProject);
+
+console.log("📌 Clés disponibles dans renderedProject :", Object.keys(renderedProject));
+
 ---
 
 <Layout>
@@ -30,7 +32,8 @@ console.log("📌 Données du projet :", project.data);
       <p>{project.data.description}</p>
 
       <!-- 🔥 Rendre le texte enrichi Markdown -->
-      <div class="project-content" set:html={html}></div>
+<div class="project-content" set:html={project.render().html}></div>
+
 
       <!-- 🔥 Afficher la galerie -->
       {project.data.gallery && (
