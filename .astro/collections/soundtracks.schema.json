@@ -1,0 +1,72 @@
+{
+  "$ref": "#/definitions/soundtracks",
+  "definitions": {
+    "soundtracks": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "track",
+            "dj-set",
+            "collaboration"
+          ]
+        },
+        "soundcloudUrl": {
+          "type": "string"
+        },
+        "coverImage": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "electronic"
+          ]
+        },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "date",
+        "type",
+        "soundcloudUrl",
+        "coverImage"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

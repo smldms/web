@@ -60,3 +60,38 @@ collections:
         }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Contenu", name: "body", widget: "markdown" }
+     
+  - name: "soundtracks"
+    label: "Pistes Audio"
+    folder: "src/content/soundtracks"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { 
+          label: "Type", 
+          name: "type", 
+          widget: "select", 
+          options: ["track", "dj-set", "collaboration"] 
+        }
+      - { label: "URL Soundcloud", name: "soundcloudUrl", widget: "string" }
+      - { label: "Image de couverture", name: "coverImage", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["electronic"] }
+      - { label: "Mis en avant", name: "featured", widget: "boolean", default: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Paramètres"
+    files:
+      - label: "Configuration Sound"
+        name: "sound-config"
+        file: "src/content/settings/sound.json"
+        fields:
+          - { label: "Titre de la page", name: "pageTitle", widget: "string", default: "SOUND" }
+          - { label: "Description de la page", name: "pageDescription", widget: "string" }
+          - { label: "Image d'arrière-plan", name: "backgroundImage", widget: "image" }
+          - { label: "Titre section Tracks", name: "tracksTitle", widget: "string", default: "Tracks" }
+          - { label: "Titre section DJ Sets", name: "djSetsTitle", widget: "string", default: "DJ Sets" }
+          - { label: "Titre section Collaborations", name: "collaborationsTitle", widget: "string", default: "Collaborations" }

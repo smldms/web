@@ -1,0 +1,33 @@
+{
+  "$ref": "#/definitions/settings",
+  "definitions": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "pageTitle": {
+          "type": "string"
+        },
+        "pageDescription": {
+          "type": "string"
+        },
+        "backgroundImage": {
+          "type": "string"
+        },
+        "tracksTitle": {
+          "type": "string"
+        },
+        "djSetsTitle": {
+          "type": "string"
+        },
+        "collaborationsTitle": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
