@@ -40,6 +40,13 @@ collections:
           field: { label: "Image", name: "image", widget: "image" }
         }
       - {
+          label: "YouTube Video",
+          name: "youtubeVideo",
+          widget: "string",
+          required: false,
+          hint: "Ajoute l'URL complète d'une vidéo YouTube"
+        }
+      - {
           label: "External Link",
           name: "externalLink",
           widget: "string",
