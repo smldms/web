@@ -33,6 +33,13 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Cover Image", name: "coverImage", widget: "image" }
       - {
+          label: "Gallery",
+          name: "gallery",
+          widget: "list",
+          allow_add: true,
+          field: { label: "Image", name: "image", widget: "image" }
+        }
+      - {
           label: "External Link",
           name: "externalLink",
           widget: "string",
@@ -46,4 +53,3 @@ collections:
         }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Contenu", name: "body", widget: "markdown" }
-

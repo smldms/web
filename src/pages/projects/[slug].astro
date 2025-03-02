@@ -15,13 +15,8 @@ export async function getStaticPaths() {
 // Récupérer le projet en cours
 const { project } = Astro.props;
 
-console.log("🔍 Debug : project.render()", project.render);
-
-const renderedProject = await project.render();
-console.log("📌 Contenu HTML du projet :", renderedProject);
-
-console.log("📌 Clés disponibles dans renderedProject :", Object.keys(renderedProject));
-
+// Rendre le contenu Markdown en HTML
+const { Content } = await project.render();
 ---
 
 <Layout>
@@ -32,8 +27,9 @@ console.log("📌 Clés disponibles dans renderedProject :", Object.keys(rendere
       <p>{project.data.description}</p>
 
       <!-- 🔥 Rendre le texte enrichi Markdown -->
-<div class="project-content" set:html={project.render().html}></div>
-
+      <div class="project-content">
+        <Content />
+      </div>
 
       <!-- 🔥 Afficher la galerie -->
       {project.data.gallery && (
@@ -58,6 +54,7 @@ console.log("📌 Clés disponibles dans renderedProject :", Object.keys(rendere
     padding: 4rem 0;
     text-align: center;
   }
+
   .project-image {
     max-width: 100%;
     height: auto;
@@ -68,6 +65,7 @@ console.log("📌 Clés disponibles dans renderedProject :", Object.keys(rendere
     text-align: left;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
   .project-gallery {
     display: flex;
