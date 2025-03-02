@@ -1,0 +1,434 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+
+// Regrouper les projets par catégorie
+const categories = [
+  { id: "generative-art", label: "Generative Art" },
+  { id: "runtime-art", label: "Runtime Art" },
+  { id: "post-photography", label: "Post Photography" }
+];
+
+// Créer un objet pour stocker les projets par catégorie
+const projectsByCategory = {};
+
+// Initialiser les catégories
+categories.forEach(category => {
+  projectsByCategory[category.id] = [];
+});
+
+// Remplir les catégories avec les projets correspondants
+projects.forEach(project => {
+  if (Array.isArray(project.data.categories)) {
+    project.data.categories.forEach(category => {
+      if (projectsByCategory[category]) {
+        projectsByCategory[category].push(project);
+      }
+    });
+  }
+});
+---
+
+<Layout>
+  <Header />
+  
+  <main class="projects-page">
+    <div class="hero-section">
+      <div class="container">
+        <h1 class="page-title glitch" data-text="Tous les projets">Tous les projets</h1>
+        <p class="page-description">Découvrez l'ensemble de mes projets artistiques et créatifs.</p>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="categories-nav">
+        <ul>
+          {categories.map(category => (
+            <li>
+              <a href={`#${category.id}`} class="category-link">{category.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="categories-container">
+        {categories.map(category => (
+          <section id={category.id} class="category-section">
+            <h2 class="category-title glitch" data-text={category.label}>{category.label}</h2>
+            
+            {projectsByCategory[category.id].length > 0 ? (
+              <div class="projects-grid">
+                {projectsByCategory[category.id].map(project => (
+                  <a href={`/projects/${project.slug}`} class="project-item-link">
+                    <div class="project-item">
+                      <div class="project-image-container">
+                        <img 
+                          src={project.data.coverImage} 
+                          alt={project.data.title} 
+                          class="project-image"
+                          loading="lazy"
+                        />
+                        <div class="project-overlay">
+                          <p class="project-description">{project.data.description}</p>
+                        </div>
+                        <div class="glitch-effect"></div>
+                      </div>
+                      <h3 class="project-title">{project.data.title}</h3>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p class="empty-category">Aucun projet dans cette catégorie pour le moment.</p>
+            )}
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .projects-page {
+    padding-top: 80px;
+  }
+
+  .hero-section {
+    padding: 6rem 0 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), var(--color-background));
+  }
+
+  .page-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .page-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--color-text-light);
+  }
+
+  .categories-nav {
+    margin: 3rem 0;
+    border-bottom: 1px solid rgba(74, 108, 247, 0.3);
+    padding-bottom: 1rem;
+  }
+
+  .categories-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .category-link {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .category-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  .category-link:hover::after {
+    width: 100%;
+  }
+
+  .category-section {
+    margin-bottom: 5rem;
+  }
+
+  .category-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    position: relative;
+    display: inline-block;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-md);
+  }
+
+  .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg), 0 0 15px var(--color-accent-glow);
+  }
+
+  .project-image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.3s ease;
+  }
+
+  .project-item:hover .project-image {
+    transform: scale(1.05);
+    filter: contrast(120%) brightness(110%) saturate(130%);
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+  }
+
+  .project-item:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+    margin: 1rem 0 0;
+    transition: color 0.3s ease;
+  }
+
+  .project-item:hover .project-title {
+    color: var(--color-accent);
+  }
+
+  /* Effet glitch sur les images au survol */
+  .glitch-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(74, 108, 247, 0.2), transparent);
+    mix-blend-mode: overlay;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .project-item:hover .glitch-effect {
+    opacity: 1;
+    animation: glitch-animation 0.5s infinite;
+  }
+
+  @keyframes glitch-animation {
+    0% {
+      background-position: 0 0;
+      filter: hue-rotate(0deg);
+    }
+    10% {
+      background-position: 5px 0;
+    }
+    20% {
+      background-position: -5px 0;
+    }
+    30% {
+      background-position: 15px 0;
+    }
+    40% {
+      background-position: 5px 0;
+    }
+    50% {
+      background-position: -25px 0;
+      filter: hue-rotate(180deg);
+    }
+    60% {
+      background-position: -5px 0;
+    }
+    70% {
+      background-position: 0 -10px;
+    }
+    80% {
+      background-position: -15px 0;
+    }
+    90% {
+      background-position: 10px 0;
+    }
+    100% {
+      background-position: 0 0;
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .project-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(255, 255, 255, 0.05) 4px
+    );
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .project-item:hover::before {
+    opacity: 1;
+    animation: pixelate 0.5s steps(10) infinite;
+  }
+
+  @keyframes pixelate {
+    0% {
+      background-size: 100% 100%;
+    }
+    25% {
+      background-size: 300% 100%;
+    }
+    50% {
+      background-size: 100% 300%;
+    }
+    75% {
+      background-size: 400% 100%;
+    }
+    100% {
+      background-size: 100% 100%;
+    }
+  }
+
+  .empty-category {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-light);
+    padding: 2rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .categories-nav ul {
+      gap: 1rem;
+    }
+
+    .category-link {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
+    }
+
+    .category-title {
+      font-size: 2rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Smooth scroll pour les liens d'ancrage
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (!targetId) return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Ajouter la classe active au lien cliqué
+        document.querySelectorAll('.category-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // Animation au défilement pour les sections
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animer les projets avec un délai
+          const projects = entry.target.querySelectorAll('.project-item');
+          projects.forEach((project, index) => {
+            project.style.opacity = '0';
+            project.style.transform = 'translateY(20px)';
+            project.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            
+            setTimeout(() => {
+              project.style.opacity = '1';
+              project.style.transform = 'translateY(0)';
+            }, 100);
+          });
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    document.querySelectorAll('.category-section').forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>

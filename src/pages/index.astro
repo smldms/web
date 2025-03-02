@@ -15,9 +15,7 @@ console.log("📂 Projets récupérés depuis Astro :", projects);
 const categories = [
   { id: "generative-art", label: "Generative Art" },
   { id: "runtime-art", label: "Runtime Art" },
-  { id: "post-photography", label: "Post Photography" },
-  { id: "platform", label: "Platform" },
-  { id: "dj-set", label: "DJ Set" }
+  { id: "post-photography", label: "Post Photography" }
 ];
 ---
 
@@ -25,19 +23,28 @@ const categories = [
   <Header />
   <Hero />
   
-{categories.map(category => {
-  console.log("🔍 Catégorie envoyée à ProjectList :", category.id);
-  return (
-    <ProjectList 
-      projects={projects} 
-      category={category.id} 
-    />
-  );
-})}
-
+  <div class="categories-container">
+    {categories.map(category => {
+      console.log("🔍 Catégorie envoyée à ProjectList :", category.id);
+      return (
+        <ProjectList 
+          projects={projects} 
+          category={category.id} 
+        />
+      );
+    })}
+  </div>
   
   <Footer />
 </Layout>
+
+<style>
+  .categories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Réduit l'espace entre les catégories */
+  }
+</style>
 
 <script>
   // Smooth scroll for anchor links
@@ -55,5 +62,27 @@ const categories = [
         });
       }
     });
+  });
+
+  // Animation au défilement pour les sections
+  document.addEventListener('DOMContentLoaded', () => {
+    const animateOnScroll = () => {
+      const sections = document.querySelectorAll('.project-section');
+      
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (sectionTop < windowHeight * 0.75) {
+          section.classList.add('visible');
+        }
+      });
+    };
+    
+    // Exécuter une fois au chargement
+    animateOnScroll();
+    
+    // Puis à chaque défilement
+    window.addEventListener('scroll', animateOnScroll);
   });
 </script>

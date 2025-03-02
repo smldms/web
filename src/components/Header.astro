@@ -17,8 +17,17 @@
           <li><a href="#generative-art" data-category="generative-art">Generative Art</a></li>
           <li><a href="#runtime-art" data-category="runtime-art">Runtime Art</a></li>
           <li><a href="#post-photography" data-category="post-photography">Post Photography</a></li>
-          <li><a href="#platform" data-category="platform">Platform</a></li>
-          <li><a href="#dj-set" data-category="dj-set">DJ Set</a></li>
+          <li class="has-submenu">
+            <a href="#" class="platform-toggle">Platform</a>
+            <ul class="submenu">
+              <li><a href="https://www.fxhash.xyz/" target="_blank" rel="noopener noreferrer">Fxhash</a></li>
+              <li><a href="https://gamma.io/" target="_blank" rel="noopener noreferrer">Gamma.io</a></li>
+              <li><a href="https://rarible.com/" target="_blank" rel="noopener noreferrer">Rarible</a></li>
+              <li><a href="https://neftyblocks.com/" target="_blank" rel="noopener noreferrer">Neftyblocks</a></li>
+              <li><a href="https://generative.xyz/" target="_blank" rel="noopener noreferrer">Generative</a></li>
+            </ul>
+          </li>
+          <li><a href="/sound">Sound</a></li>
         </ul>
       </nav>
     </div>
@@ -33,6 +42,15 @@
   menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
     mainMenu?.classList.toggle('active');
+  });
+
+  // Platform submenu toggle
+  const platformToggle = document.querySelector('.platform-toggle');
+  
+  platformToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const parent = platformToggle.parentElement;
+    parent?.classList.toggle('submenu-active');
   });
 
   // Category filtering
@@ -134,6 +152,73 @@
     width: 100%;
   }
 
+  /* Submenu styles */
+  .has-submenu {
+    position: relative;
+  }
+
+  .has-submenu > a::before {
+    content: '▼';
+    font-size: 0.6rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+  }
+
+  .has-submenu.submenu-active > a::before {
+    transform: rotate(180deg);
+  }
+
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 108, 247, 0.3);
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(74, 108, 247, 0.3);
+    z-index: 101;
+  }
+
+  .has-submenu.submenu-active .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .submenu li {
+    padding: 0;
+    margin: 0;
+  }
+
+  .submenu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .submenu a:hover {
+    background-color: rgba(74, 108, 247, 0.2);
+    color: var(--color-accent);
+  }
+
+  .submenu a::after {
+    display: none;
+  }
+
+  /* Mobile menu toggle */
   #menu-toggle {
     display: none;
     background: none;
@@ -192,6 +277,37 @@
 
     #main-menu a {
       font-size: 1.5rem;
+    }
+
+    .has-submenu {
+      width: 100%;
+      text-align: center;
+    }
+
+    .submenu {
+      position: relative;
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      display: none;
+    }
+
+    .has-submenu.submenu-active .submenu {
+      display: block;
+    }
+
+    .submenu a {
+      padding: 0.5rem 0;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .submenu a:hover {
+      background: transparent;
+      opacity: 1;
     }
   }
 </style>

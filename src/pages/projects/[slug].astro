@@ -17,78 +17,949 @@ const { project } = Astro.props;
 
 // Rendre le contenu Markdown en HTML
 const { Content } = await project.render();
+
+// Fonction pour extraire l'ID de la vidéo YouTube
+function getYoutubeVideoId(url) {
+  if (!url) return null;
+  
+  // Formats possibles: 
+  // - https://www.youtube.com/watch?v=VIDEO_ID
+  // - https://youtu.be/VIDEO_ID
+  // - https://youtube.com/embed/VIDEO_ID
+  
+  const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+// Récupérer l'ID de la vidéo YouTube si elle existe
+const youtubeVideoId = project.data.youtubeVideo ? getYoutubeVideoId(project.data.youtubeVideo) : null;
+
+// Formater la date
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+const formattedDate = formatDate(project.data.date);
 ---
 
 <Layout>
-  <section class="project-detail">
-    <div class="container">
-      <h1>{project.data.title}</h1>
-      <img src={project.data.coverImage} alt={project.data.title} class="project-image" />
-      <p>{project.data.description}</p>
+  <article class="project-detail">
+    <!-- Hero Section avec image de couverture -->
+    <div class="hero-section" style={`background-image: url(${project.data.coverImage});`}>
+      <div class="hero-overlay">
+        <div class="container">
+          <h1 class="project-title glitch" data-text={project.data.title}>{project.data.title}</h1>
+          <div class="project-meta">
+            <span class="project-date">{formattedDate}</span>
+            {project.data.categories && (
+              <div class="project-categories">
+                {project.data.categories.map(category => (
+                  <span class="category-tag">{category}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <!-- 🔥 Rendre le texte enrichi Markdown -->
-      <div class="project-content">
-        <Content />
+    <div class="container">
+      <!-- Description du projet -->
+      <div class="project-description">
+        <p>{project.data.description}</p>
+      </div>
+
+      <!-- Contenu principal -->
+      <div class="project-main">
+        <div class="project-sidebar">
+          <!-- Informations du projet -->
+          <div class="project-info">
+            <h3 class="cyber-heading">Informations</h3>
+            <ul>
+              <li><strong>Date:</strong> {formattedDate}</li>
+              {project.data.categories && (
+                <li>
+                  <strong>Catégories:</strong>
+                  <div class="categories-list">
+                    {project.data.categories.map(category => (
+                      <span class="category-pill">{category}</span>
+                    ))}
+                  </div>
+                </li>
+              )}
+              {project.data.externalLink && (
+                <li>
+                  <a href={project.data.externalLink} target="_blank" rel="noopener noreferrer" class="cyber-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Voir le projet en ligne
+                  </a>
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-content-wrapper">
+          <!-- 🔥 Intégration de la vidéo YouTube si elle existe -->
+          {youtubeVideoId && (
+            <div class="youtube-container">
+              <div class="video-glitch-wrapper">
+                <iframe 
+                  width="560" 
+                  height="315" 
+                  src={`https://www.youtube.com/embed/${youtubeVideoId}`} 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen
+                ></iframe>
+                <div class="glitch-effect"></div>
+              </div>
+            </div>
+          )}
+
+          <!-- 🔥 Rendre le texte enrichi Markdown -->
+          <div class="project-content">
+            <Content />
+          </div>
+        </div>
       </div>
 
       <!-- 🔥 Afficher la galerie -->
-      {project.data.gallery && (
+      {project.data.gallery && project.data.gallery.length > 0 && (
         <div class="project-gallery">
-          {project.data.gallery.map(image => (
-            <img src={image} alt="Galerie d'images" class="gallery-image" />
-          ))}
+          <h2 class="gallery-title glitch" data-text="Galerie">Galerie</h2>
+          <div class="gallery-grid">
+            {project.data.gallery.map(image => (
+              <div class="gallery-item">
+                <div class="glitch-container">
+                  <img src={image} alt="Image du projet" class="gallery-image" loading="lazy" />
+                  <div class="glitch-overlay"></div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
-      {project.data.externalLink && (
-        <a href={project.data.externalLink} target="_blank" class="project-link">
-          Voir le projet en ligne
+      <!-- Navigation entre projets -->
+      <div class="project-navigation">
+        <a href="../../index.html" class="cyber-button-large">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="nav-icon">←</span> Tous les projets
         </a>
-      )}
+      </div>
     </div>
-  </section>
+  </article>
 </Layout>
 
 <style>
-  .project-detail {
-    padding: 4rem 0;
-    text-align: center;
+  /* Variables CSS */
+  :root {
+    --color-primary: #111827;
+    --color-secondary: #4b5563;
+    --color-accent: #4a6cf7;
+    --color-accent-dark: #3a5cd7;
+    --color-accent-glow: rgba(74, 108, 247, 0.5);
+    --color-background: #0a0a0f;
+    --color-card: rgba(16, 16, 24, 0.8);
+    --color-text: #e0e0e0;
+    --color-text-light: #a0a0a0;
+    --border-radius: 4px;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-neon: 0 0 10px var(--color-accent-glow), 0 0 20px var(--color-accent-glow);
   }
 
-  .project-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+  /* Styles généraux */
+  .project-detail {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
-  .project-content {
-    text-align: left;
-    max-width: 800px;
+
+  .container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 var(--spacing-sm);
   }
-  .project-gallery {
+
+  /* Effet Glitch pour les titres */
+  .glitch {
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: glitch 2s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    animation: glitch-1 2s infinite linear alternate-reverse;
+  }
+
+  .glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 #00fff9;
+    animation: glitch-2 3s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                  -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                  0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    14% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                  -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+                  0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    15% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                  0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                  -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+                  0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+                  -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    50% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                  0.05em 0 0 rgba(0, 255, 0, 0.75),
+                  0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    99% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+                  0.05em 0 0 rgba(0, 255, 0, 0.75),
+                  0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+    100% {
+      text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+                  -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+                  -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+  }
+
+  @keyframes glitch-1 {
+    0% {
+      clip: rect(20px, 9999px, 15px, 0);
+    }
+    25% {
+      clip: rect(32px, 9999px, 28px, 0);
+    }
+    50% {
+      clip: rect(9px, 9999px, 98px, 0);
+    }
+    75% {
+      clip: rect(24px, 9999px, 11px, 0);
+    }
+    100% {
+      clip: rect(87px, 9999px, 37px, 0);
+    }
+  }
+
+  @keyframes glitch-2 {
+    0% {
+      clip: rect(78px, 9999px, 89px, 0);
+    }
+    25% {
+      clip: rect(44px, 9999px, 66px, 0);
+    }
+    50% {
+      clip: rect(23px, 9999px, 27px, 0);
+    }
+    75% {
+      clip: rect(67px, 9999px, 22px, 0);
+    }
+    100% {
+      clip: rect(12px, 9999px, 49px, 0);
+    }
+  }
+
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: var(--spacing-lg);
+    color: white;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(10, 10, 15, 0.9));
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .project-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.02em;
+  }
+
+  .project-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
   }
-  .gallery-image {
-    width: 200px;
-    height: auto;
-    border-radius: 5px;
+
+  .project-date {
+    font-size: 1rem;
+    opacity: 0.9;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 10px;
   }
-  .project-link {
+
+  .project-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  .category-tag {
+    background-color: rgba(74, 108, 247, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(74, 108, 247, 0.5);
+    box-shadow: 0 0 5px rgba(74, 108, 247, 0.5);
+  }
+
+  /* Description */
+  .project-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 0 var(--spacing-sm);
+    border-bottom: 1px solid rgba(74, 108, 247, 0.3);
+    padding-bottom: var(--spacing-md);
+  }
+
+  /* Layout principal */
+  .project-main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  /* Sidebar */
+  .project-sidebar {
+    position: sticky;
+    top: var(--spacing-lg);
+    align-self: start;
+  }
+
+  .project-info {
+    background-color: var(--color-card);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(74, 108, 247, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .cyber-heading {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    border-bottom: 1px solid rgba(74, 108, 247, 0.5);
+    padding-bottom: var(--spacing-xs);
+    position: relative;
     display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--color-accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
   }
-  .project-link:hover {
-    background-color: var(--color-accent-dark);
+
+  .cyber-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+  }
+
+  .project-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .project-info li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .category-pill {
+    background-color: rgba(74, 108, 247, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    border: 1px solid rgba(74, 108, 247, 0.3);
+  }
+
+  /* Bouton Cyber */
+  .cyber-button {
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-accent);
+  }
+
+  .cyber-button:hover {
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 0 5px var(--color-accent),
+                0 0 25px var(--color-accent),
+                0 0 50px var(--color-accent),
+                0 0 200px var(--color-accent);
+  }
+
+  .cyber-button span {
+    position: absolute;
+    display: block;
+  }
+
+  .cyber-button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent));
+    animation: btn-anim1 1s linear infinite;
+  }
+
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+
+  .cyber-button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--color-accent));
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+  }
+
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+
+  .cyber-button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--color-accent));
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+
+  .cyber-button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, var(--color-accent));
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+  }
+
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+
+  /* Contenu principal */
+  .project-content-wrapper {
+    background-color: var(--color-card);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(74, 108, 247, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .project-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  .project-content h2 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.75rem;
+    color: var(--color-accent);
+    position: relative;
+    display: inline-block;
+  }
+
+  .project-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+  }
+
+  .project-content p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .project-content a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, text-shadow 0.2s ease;
+  }
+
+  .project-content a:hover {
+    border-color: var(--color-accent);
+    text-shadow: 0 0 8px var(--color-accent-glow);
+  }
+
+  /* YouTube */
+  .youtube-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .video-glitch-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-glitch-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 1;
+  }
+
+  .glitch-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(74, 108, 247, 0.1), transparent);
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .glitch-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(74, 108, 247, 0.1) 2px,
+      rgba(74, 108, 247, 0.1) 4px
+    );
+    animation: scanlines 8s linear infinite;
+    opacity: 0.3;
+  }
+
+  @keyframes scanlines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  /* Galerie */
+  .project-gallery {
+    margin: var(--spacing-xl) 0;
+  }
+
+  .gallery-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .gallery-item {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg), 0 0 15px var(--color-accent-glow);
+  }
+
+  .glitch-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    display: block;
+    transition: transform 0.5s ease, filter 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+    filter: contrast(120%) brightness(110%) saturate(130%);
+  }
+
+  .glitch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(74, 108, 247, 0.2), transparent);
+    mix-blend-mode: overlay;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .glitch-overlay {
+    opacity: 1;
+    animation: glitch-animation 0.5s infinite;
+  }
+
+  @keyframes glitch-animation {
+    0% {
+      background-position: 0 0;
+      filter: hue-rotate(0deg);
+    }
+    10% {
+      background-position: 5px 0;
+    }
+    20% {
+      background-position: -5px 0;
+    }
+    30% {
+      background-position: 15px 0;
+    }
+    40% {
+      background-position: 5px 0;
+    }
+    50% {
+      background-position: -25px 0;
+      filter: hue-rotate(180deg);
+    }
+    60% {
+      background-position: -5px 0;
+    }
+    70% {
+      background-position: 0 -10px;
+    }
+    80% {
+      background-position: -15px 0;
+    }
+    90% {
+      background-position: 10px 0;
+    }
+    100% {
+      background-position: 0 0;
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(255, 255, 255, 0.05) 4px
+    );
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .gallery-item:hover::before {
+    opacity: 1;
+    animation: pixelate 0.5s steps(10) infinite;
+  }
+
+  @keyframes pixelate {
+    0% {
+      background-size: 100% 100%;
+    }
+    25% {
+      background-size: 300% 100%;
+    }
+    50% {
+      background-size: 100% 300%;
+    }
+    75% {
+      background-size: 400% 100%;
+    }
+    100% {
+      background-size: 100% 100%;
+    }
+  }
+
+  /* Navigation */
+  .project-navigation {
+    display: flex;
+    justify-content: center;
+    margin: var(--spacing-xl) 0;
+  }
+
+  .cyber-button-large {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    overflow: hidden;
+    transition: 0.5s;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-accent);
+    display: flex;
+    align-items: center;
+  }
+
+  .cyber-button-large:hover {
+    background: var(--color-accent);
+    color: #fff;
+    box-shadow: 0 0 5px var(--color-accent),
+                0 0 25px var(--color-accent),
+                0 0 50px var(--color-accent),
+                0 0 200px var(--color-accent);
+  }
+
+  .cyber-button-large span {
+    position: absolute;
+    display: block;
+  }
+
+  .cyber-button-large span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent));
+    animation: btn-anim1 1s linear infinite;
+  }
+
+  .cyber-button-large span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--color-accent));
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+  }
+
+  .cyber-button-large span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--color-accent));
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+  }
+
+  .cyber-button-large span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, var(--color-accent));
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+  }
+
+  .nav-icon {
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .project-main {
+      grid-template-columns: 1fr;
+    }
+
+    .project-sidebar {
+      position: static;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .project-info {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      height: 50vh;
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+    }
+
+    .project-content-wrapper {
+      padding: var(--spacing-md);
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-section {
+      height: 40vh;
+    }
+
+    .project-title {
+      font-size: 2rem;
+    }
+
+    .project-description {
+      font-size: 1rem;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
