@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
-// Générer les pages dynamiques
+// 🔍 Récupérer les projets depuis Astro Content
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
 
@@ -14,6 +14,12 @@ export async function getStaticPaths() {
 
 // Récupérer le projet en cours
 const { project } = Astro.props;
+
+// 🔍 On récupère le contenu Markdown en **attendant la promesse**
+const { html } = await project.render();
+
+console.log("📌 Contenu HTML du projet :", html);
+console.log("📌 Données du projet :", project.data);
 ---
 
 <Layout>
@@ -23,10 +29,8 @@ const { project } = Astro.props;
       <img src={project.data.coverImage} alt={project.data.title} class="project-image" />
       <p>{project.data.description}</p>
 
-      <!-- 🔥 Intégrer le texte enrichi -->
-      <div class="project-content">
-        {project.render()}
-      </div>
+      <!-- 🔥 Rendre le texte enrichi Markdown -->
+      <div class="project-content" set:html={html}></div>
 
       <!-- 🔥 Afficher la galerie -->
       {project.data.gallery && (
