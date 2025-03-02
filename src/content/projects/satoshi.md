@@ -2,6 +2,8 @@
 title: Satoshi
 categories:
   - post-photography
+  - generative-art
+  - runtime-art
 description: Un autre test
 coverImage: /images/uploads/satoshi-s-clock-runtime-ordinals-art-by-smldms-3-.png
 gallery:
