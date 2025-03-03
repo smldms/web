@@ -60,10 +60,9 @@ collections:
         }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Contenu", name: "body", widget: "markdown" }
-      
-    collections:
+
   - name: "soundtracks"
-    label: "Pistes Audio"
+    label: "Sound Project"
     folder: "src/content/soundtracks"
     create: true
     slug: "{{slug}}"
