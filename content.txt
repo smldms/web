@@ -1,0 +1,475 @@
+Timelocked Structures
+Immutable Echoes of the Blockchain
+
+🚀 Bitcoin is forever. Blocks are forever. Each mined block is a cryptographic milestone, a timestamped relic of the decentralized ledger. Timelocked Structures is a dynamic generative artwork that transforms the raw essence of Bitcoin into visual and auditory architecture—a monumental archive of the blockchain, evolving in real-time, yet unchangeable for eternity.
+🔥 Ordinals Meet the Architecture of Time
+With each new block, an isometric structure emerges, sculpted by pure on-chain data. These are not just visual forms—they are digital fossils, permanent constructs, inscribed on Bitcoin, never to be altered. This isn’t some fleeting generative art; this is a forever artifact, bound to the chain itself.
+Each block is a snapshot of the network’s heartbeat, an unforgeable proof of existence, solidified in the temporal vault of Bitcoin. Every structure, like every transaction, is set in digital stone, forming a growing cathedral of computation—a citadel of decentralization.
+And the best part? You can explore them all. Enter a block number, rewind Bitcoin’s history, and walk through the monuments of time.
+🎵 The Sound of Blocks—A Living Archive of Bitcoin
+But Timelocked Structures isn’t just an architectural record. Each block is also assigned a unique, procedurally generated soundscape, a blockchain resonance that echoes its distinct identity.
+The music isn’t random—it’s algorithmically composed, derived from the DNA of Bitcoin itself. Every block has its own frequency, its own melody, its own immutable rhythm. Some whisper, some roar. Some pulse like the early blocks, others resonate like the modern epoch of high-fee congestion. Each block, a note in the grand symphony of Bitcoin.
+⛓️ A Digital Megastructure—Built Block by Block
+Bitcoin is the strongest network on Earth. Its blocks are absolute, unstoppable, indelible. Timelocked Structures honors this permanence, creating an unbroken chain of generative monuments—each one tied to a real Bitcoin block, each one locked in time.
+This is not just art.
+This is not just an archive.
+This is the architecture of the blockchain itself, etched forever into the timestamped grid of Bitcoin’s truth.
+🚨 No edits. No erasures. No re-rolls.
+Each block is its own immutable temple.
+The only way forward? Wait for the next block.
+Welcome to Timelocked Structures.
+Explore the chain. Witness the permanence. Own a monument of Bitcoin.
+⚡ Built on the only chain that matters.
+
+//////////////////////////////////////////////
+
+Minimal shift
+repetition and randomness
+Minimal in appearance but complex in nature, it's an invitation to explore the tension between repetition and randomness. The elegant juxtaposition of blocks and voids, lines and spaces.
+
+The hash provides a unique name to each canvas.
+##Features
+Format: Portrait, Landscape, Square, 16-9
+Division: 5, 10, 25, 50, 100
+##Made with P5.js
+
+//////////////////////////////////////////////
+
+In the middle flows a river
+Inspired by Les Humanoïdes Associés, a comic book publishing house founded in December 1974 by Mœbius, Jean-Pierre Dionnet, Philippe Druillet, and Bernard Farkas.
+In the intricate fabric of the digital realm, landscapes come to life, inspired by the visionary spirit of Les Humanoïdes Associés. On the screen, each geometric shape and line of code transform into fragments of alternate realities. Here, programming is not just a tool, but a gateway to unexplored worlds, where mountains rise like visual poems under skies woven with digital stars. This is an invitation to traverse horizons where technology intertwines with the imaginary, offering each viewer an escape into the boundless.
+
+//////////////////////////////////////
+
+Harmonic Chaos
+a silent symphony
+It was during a reflective evening that the warm crackle of a vinyl record came to life under the needle of my faithful Technics SL1210 turntables. The Doors' album 'Waiting for the Sun', a cherished disc I hadn't spun in ages, began to spread its psychedelic aura throughout my studio.
+Each crackle of the vinyl was a reminder of the golden years, each melody a journey through time. Morrison's voice, more alive than ever, wove its way through the veil of the past, transporting me back to an era where music and poetry merged to capture the zeitgeist.
+In this suspended moment, 'Harmonic Chaos' was born. Carried by the waves of 'Love Street' and 'Spanish Caravan', my keyboard became the instrument of my reminiscence. The lines of code started to dance with the music, and as if by magic, the iterations began to emerge, capturing the soul of a bygone era in a series of images where minimalism meets abstraction.
+The poem, a creation by ChatGPT immersed in the spirit of Morrison, echoes that evening when music transformed inspiration into visual art. It tells the story of 'Harmonic Chaos', a tribute to the night when a legendary album redefined the contours of my creativity.
+A silent symphony
+In the silent void where whispers dwell,
+Amidst the Harmonic Chaos' spell,
+The lines, they dance, the shadows play,
+In ordered disarray.
+Patterns born of the abyss’ whim,
+Singing a cosmic, silent hymn.
+An architect of chance's hand,
+Drawing stories in the sand.
+Each dot a note, each line a verse,
+A universe's heart, dispersed.
+A labyrinth for the mind's eye,
+Where echoes of the stars lie.
+An echo of the endless night,
+Where dreams take wing in flight,
+Through Harmonic Chaos, wild and free,
+We touch the face of eternity.
+Poem written by ChatGPT as Jim Morrison contemplating this iteration series.
+
+//////////////////////////////
+
+Polar
+Radical Simplicity
+In a constantly bustling world where complexity reigns supreme, "Polar" stands alone. This creation in p5.js defies conventions, firmly aligning itself with the lineage of minimalist art. Here, there are no frills, no artifice. Only the purity of form matters, the raw simplicity that emanates from every line and shade of gray. Each line, each curve is an expression of mathematical precision, devoid of any excess.
+The color palette is also stripped down to the essentials. Two opposing colors, white and black, clothe the stage. This duality creates a powerful contrast, a palpable visual tension. The choice to invert these colors or differentiate them adds a layer of complexity to this apparent simplicity, creating an unstable equilibrium.
+Where others might see a minimalist canvas, "Polar" reveals its subtle rebellion. It stands on the fringe of contemporary artistic conventions, choosing to distinguish itself by reducing everything to its core. Form, color, movement—everything is simplified to the extreme, but in this radical simplicity, it finds its true power.
+It's an invitation to look beyond appearances, to delve into the world of minimalism. "Polar" reminds us that beauty can emerge from simplicity, that the purest expression can be found in radical reduction. It's a challenge to complexity, a bold statement that reminds us that sometimes, the most impactful art is found in the most radical simplicity.
+
+////////////////////////////////
+
+Techno Cluster
+The Fusion of Generative and 3D
+
+////////////////////////////
+
+Waves Circle
+An Exploration of Texture and Form
+
+
+Discover the enchantment of intricate patterns in the "Waves Circle", an artistic series that delves deeply into the interplay between texture and shape. These digital compositions, with their delicate waves and precise strata, evoke natural landscapes and marine phenomena, each crest and trough intertwining in a harmonious visual dance. The balance struck between repetition and variation offers a visual experience that is both meditative and invigorating.
+One of the major highlights of this series is the capability to export each piece in SVG format. This offers a unique opportunity for art and technology enthusiasts: with the aid of a pen plotter, these images can be transformed into tangible, real-life drawings, adding a tactile dimension to an already rich visual experience. The merging of digital art with mechanics paves the way for endless exploration of the potentials of the "Waves Circle".
+
+//////////////////////////////////////////////
+
+space blocks
+
+dynamic artwork created from real-time data of Bitcoin
+Space Blocks
+is a generative and dynamic artwork created from real-time data of Bitcoin.
+The piece consists of floating blocks that move slowly and rotate in sync with the price of Bitcoin. This visual representation highlights the constant fluctuations of the cryptocurrency's value, subject to market forces and the vagaries of financial speculation.
+However, the artwork does more than just represent this data. It interacts with it in real-time, evolving based on several parameters of Bitcoin, such as price, transaction volume, and the size of the latest block created on the blockchain. For example, the maximum rotation speed of the blocks will be reached when the price of Bitcoin hits $500,000, offering an evolving experience for the viewer.
+Additionally, the artwork is designed to adapt to all screen formats, allowing it to be experienced on different devices, from smartphones to large-scale installations.
+Beyond its technical dimension, this artwork also raises fundamental philosophical questions. It invites us to reflect on the nature of time and value, the impact of new technologies on our perception of the world, the links between art and finance, and the issues of speculation and market volatility. It sheds light on the complexity of our era, marked by hyperconnectivity and unprecedented acceleration.
+Thus, this artwork invites us to both contemplation through its hypnotic choreography and to reflection. It reminds us that art is not simply an aesthetic object, but can also help us understand the world we live in, question our certainties, and open new perspectives on our existence.
+
+
+View on generative.xyz
+
+////////////////////////////////////////////////////////////
+
+Squares on squares
+The Geometry of Rebellion
+
+A Nod to Mondrian
+Inspired by the iconic work of Piet Mondrian, this piece is a contemporary reimagining of geometric abstraction. While Mondrian sought to express universal harmony through his grids, "Squares on Squares" introduces a trace of chaos, questioning traditional forms and pushing boundaries.
+Minimalism Meets Chaos
+A hint of chaos, but only a trace; this is the beauty of minimalism encapsulated in the geometric place that is the square. It's not just about aesthetics; it's about a break from the norm, a respite from the cacophony of life.
+Gone in Sixty-Four
+You've missed it. All 64 iterations, sold out on FXhash. A phenomenon in digital art, this piece has been snapped up by those who recognize the subtlety of its chaos within the bounds of its precise geometry.
+Decentralized Artistry
+A word on its unique existence: the art is registered on Tezos, making it not just another digital file but a verified NFT. An unchangeable stamp on the blockchain, as solid as the squares it portrays.
+
+//////////////////////////////////////////////////////////
+
+Full Of Flowers
+Oh my god, it's full of flowers
+Nature's art, in full bloom
+Petals soft, a colorful array
+A sight to behold, they gently sway
+
+But with computers, a new art is born
+Generative designs, a digital morn
+Code and algorithms, a new way to create
+Flowers rendered, no longer innate
+
+Gone are the days of pen and paper
+Now, with a click, a new flower caper
+Infinite variations, a never-ending bouquet
+Generative art, a new way to play
+
+But let us not forget the flowers of old
+Nature's beauty, worth more than gold
+So let us embrace both, hand and machine
+A balance of art, a true scene serene
+--------------------------------------------
+A composition of flowers made with p5.js
+
+Poem written in collaboration with ChatGPT
+
+////////////////////////////////////////////////////////////
+
+Lines, Time & Noise
+The Clock That Says "No" to Seconds
+Redefining Time, Hour by Hour
+Why are we so obsessed with the precise measurement of time? Minutes, seconds, milliseconds... all of it becomes meaningless before "Lines, Time & Noise." Here, each hour is a statement, a rebellion against hyper-precision, an opportunity to simply be.
+The Ballet of Lines and Colors
+Time is not merely displayed; it's expressed. The lines dance, stretch, and blend, creating a visual melody that spans across the day. Each state is a new note in this symphony, a chance to see time differently.
+The Art of Temporality
+This piece isn't just a canvas; it's a cycle, an ecosystem in 24 acts. Each state brings something new while echoing the others, allowing for an ever-changing experience. It's like a visual manifesto against our obsession with timing every moment of our lives.
+Immortalized on the Blockchain
+Ah, and one more thing: this work is as eternal as art can be in our age. Registered on the blockchain and sold on Async.art, "Lines, Time & Noise" is not only a reflection on time but also a digital artwork that has found its eternal home in the virtual world, escaping the decay of time and space.
+
+///////////////////////////////////////////////////////////////
+
+Seventeen Ladies
+In the ethereal realms of data's embrace,
+Where reality and virtuality interface,
+Unfolds a spectacle, a project unique,
+An NFT journey, of which I speak.
+
+Seventeen ladies in shadows dance,
+In a fashion reminiscent of Avedon's glance,
+MidJourney's children, stark and fair,
+In the abyss of black and white, they stare.
+
+Whispers of silk, hints of lace,
+Frozen in time, in data's embrace,
+Each an echo of past's delight,
+Yet born of future, in digital light.
+
+In the code's caress, a dance ensues,
+p5.js, the partner they choose,
+Two into one, they merge and twine,
+In a collage of chaos, exquisitely fine.
+
+Ghosts of a time when shutter clicked,
+With AI's touch, they're handpicked,
+In the blockchain's ledger, they find their place,
+An eternal waltz, in cyberspace.
+
+Non-fungible tokens, rare and unique,
+The language of the future, they quietly speak,
+Each a testament, a digital ode,
+To the marriage of the new and old.
+
+In the realm where art and tech collide,
+A decadent journey, a thrilling ride,
+This, the tale of an artist's dream,
+In the echo chamber of the data stream.
+
+
+A poem written in collaboration with ChatGPT
+
+Buy on fxhash
+
+//////////////////////////////////////////////////
+
+Data Drop
+The Erosion of Data in the Digital Realm
+
+
+"Data Drop" masterfully captures the concept of data erosion through a unique digital aesthetic. Crafted with P5js, this piece immerses the viewer in a universe of degrading data, highlighting the fragility and transience of information in the digital age.
+The upper section showcases rigid, ordered data columns, suggestive of structured and intact data storage. However, as one's gaze travels downward, there's a perceptible gradual dissolution of this data, as if subjected to a form of digital erosion. This disintegration process is intensified by the dark semicircle that looms large, acting like a vortex, drawing in and altering the information.
+The artwork's base encapsulates the essence of this erosion. Pixelated shapes appear to fragment and scatter, embodying the impermanence and fragility of data. Through this visual decay, "Data Drop" underscores the challenges tied to information preservation, security, and longevity in our digital world.
+This NFT piece offers a poignant reflection on the ephemeral nature of data, reminding us that, despite technological advancements, data, much like nature, is susceptible to erosion and the passage of time.
+
+///////////////////////////////////////////////////////////
+
+Reversed
+This collection OF 64 Iterations captures the spirit of the mountains, where the ridge blends into sky and earth. The inversion of the image evokes the philosophy that sometimes, to better understand nature and art, you have to look at things from a different angle, to reveal a new perspective, a new balance.
+
+/////////////////////////////////////////////////////////////////////
+
+Pattern & frequency
+A Visual Symphony of Code and Aesthetics
+
+"Pattern & Frequency" celebrates the harmony between algorithmic precision and visual aesthetic. Crafted meticulously through code, it invites viewers into a world of rhythm, repetition, and resonance in the digital realm.
+Patterns oscillate between order and chaos, illustrating the duality of rigid binary language and the randomness of electronic disruptions. While some patterns exude clarity and order, others mirror the static of an old television set, hinting at data corruption or the inherent volatility of the digital universe. These contrasting variations coexist in a delicate balance, creating a captivating visual dynamic.
+The composition alludes to sound frequency bars but with a touch of pixelated distortion. Vertical bands rise, each differing in intensity and granularity, suggesting ever-evolving data streams or frequencies. The grayscale palette highlights the variability and intensity of these patterns, drawing viewers into the intricacies of digital transmissions.
+"Pattern & Frequency" is more than just a visual treat; it's a journey for the mind. Through the lens of code, this series prompts reflection on the interplay between order and chaos, signal and noise, regularity and anomaly. In the vast expanse of the digital space, a perpetual dance unfolds—a choreography of bits and bytes, emerging patterns, and resonating frequencies. As spectators, we are not mere observers but participants, striving to decode the rhythms and find meaning within the matrix.
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+TECHNO CITY
+The Cyberpunk Dawn
+"Techno City" stands as a cyberpunk metropolis, where neon lights clash with the oppressive darkness of the streets. Entirely crafted through generative art and P5JS code, this piece portrays a city where technology reigns supreme, creating a landscape both captivating and unsettling. Each glimpse of "Techno City" is unique, with algorithms constantly reshaping the contours of this dystopian cityscape. In this realm, past and future coexist, bearing witness to a world where humanity stands at a crossroads, torn between hope and desolation.
+
+
+////////////////////////////////////////////////////////////////////////////
+
+The async curves
+"Dreamlike techno combination of generative curve plots"
+An elegant choreography of curves, linked or not between them, draws on the canvas a delicate emotion, an abstract feeling. Between calm moments and mood swings, we must expect changing behavior and very different renderings.
+3 types | 6 layers | 5 legendary editions
+
+//////////////////////////////////////////////////////////////////////////
+
+Mountains
+​​​​​​​THIS NFT WAS PURCHASED AND IS OWNED BY XCOPY ON ASYNC.ART
+24 generations of a mountainous landscape coded with P5.js. The sun of the 80s crosses the screen to show you the time which passes through these multiple digital lands.
+The image changes state and progresses every hour.
+
+//////////////////////////////////////////////////////
+
+T̸̖̮̤҄a҄͂ͪ̉҇n͗߭҇͂͘g̛̬̠᷀̀ỵ߲ Ṣ̽̌ͯ͢e̘̠̩҄͢a̶̜̤͒҄
+Play it live
+A Digital Seascape
+Crafted meticulously with P5JS, "T̸̖̮̤҄a҄͂ͪ̉҇n͗߭҇͂͘g̛̬̠᷀̀ỵ߲ Ṣ̽̌ͯ͢e̘̠̩҄͢a̶̜̤͒҄" unveils a vivid expanse of water, where waves dance in perpetual motion. A sun, radiant yet enigmatic, casts its glow from behind, illuminating the scene. The colors, both acidic and vibrant, pulse with life, creating a mesmerizing tableau that blurs the lines between the digital realm and the natural world.
+
+////////////////////////////////////////////////////////////////
+
+Đɨsŧøɍŧɨøn
+
+/////////////////////////////////////////////////////////////////:
+
+Satoshi Kurinuki
+The Fusion of Craftsmanship and Blockchain
+Deep within Bitcoin’s history, where scarcity is a sacred principle, emerges a unique collection: Satoshi Kurinuki.
+Inspired by the 21 million Bitcoins coded by Satoshi Nakamoto, this artisanal series of 21 pieces reimagines how we engage with blockchain, time, and art.
+
+Unique Pieces, Forged by Fire and Ash
+Each piece in the Satoshi Kurinuki collection is the result of an entirely manual process. Shaped using the ancient Japanese Kurinuki technique, these pottery pieces are carved from raw clay blocks, then elevated with natural ash glazes. The outcome: one-of-a-kind objects, much like the blocks of a blockchain, carrying a profound story.
+But there’s more: each pot is linked to an Ordinal NFT, engraved into the Bitcoin network, turning these physical works into immutable digital certificates of authenticity.
+Bitcoin and Digital Archaeology
+Ordinals: digital archaeology. By inscribing these pieces onto Bitcoin, we contribute to a new layer of history, etched into humanity’s most immutable chain. Each NFT in the collection becomes a fragment of a technological era, a contemporary relic preserved for future generations.
+Like artifacts unearthed in an archaeological dig, the Satoshi Kurinuki pieces transcend their physical existence to become timeless testaments to the intersection of art, craftsmanship, and technology.
+A Bridge Between Tradition and Innovation
+The Satoshi Kurinuki project doesn’t just connect the past and the future. It is an exploration of value:
+Artisan, in the uniqueness of every piece.
+Digital, in their immutable inscription on Bitcoin.
+Philosophical, in honoring Satoshi Nakamoto, the architect of digital scarcity.
+A Limited Collection for Pioneers
+Like Bitcoin, the collection is scarce: only 21 pieces, numbered and ready to ship. Each pot is accompanied by its Authenticity Certificate, inscribed as an Ordinal, guaranteeing its uniqueness and provenance.
+This fusion of art and technology is an invitation to explore a new frontier, where Satoshi Nakamoto’s legacy meets the timelessness of art.
+
+/////////////////////////////////////////////////////////
+
+minimal indicator
+
+a generative and dynamic 
+artwork created from 
+the change of Bitcoin in 24 h
+
+
+"Minimal Indicator" is a generative and dynamic artwork created from the change of Bitcoin in 24 hours.
+The composition of "Minimal Indicator" is deliberately minimalist and abstract, designed to convey the complexity of the cryptocurrency market in a visually intuitive way. Your composition will remain frozen in time. Only an indication is variable and depends on the 24-hour Bitcoin exchange. If the price is falling you will see red, if it is rising the indicator will be green.
+Decorative, "Minimal Indicator" thus allows you to keep an eye on the Bitcoin market.
+
+//////////////////////////////////////////////////////////////////////:
+
+Dance
+with BTC
+is a generative and dynamic work of art created from real-time Bitcoin data.
+Bitcoin price, last block size, daily BTC volume affect dance behavior. The choreography, although it remains the same, will therefore evolve over time, slightly faster, more energetic, calmer, more or less dense, Bitcoin will decide.
+Sold out on generative.xyz
+
+/////////////////////////////////////////////////////////////////////////
+
+Mona Kamoto
+
+Put the Laser Eyes on
+and mint a Web3 RΞnaissance Blueprint with the great Mona Kamoto.
+When the world thought that Dorian Nakamoto could have been Satoshi, his face has become one of the best known in the cryptosphere. With NFTs, since 2017 we have witnessed a rebirth of digital art, this is how Mona was born Kamoto. Inspired by probably the most famous canvas in the world, very symbol of the Renaissance, this Blueprint composition appropriates certain artifices of 90's pop culture, Mona adorns himself with tattoos and wears his laser eyes to disrupt the system.
+
+Two legendary
+editions
+
+https://async.market/blueprints/6310a03a508206edcd1d73c9/smldms-mona-kamoto
+
+/////////////////////////////////////////////////////////////////////////////
+
+Crypto dreamers
+
+////////////////////////////////////////////////////////////////////////////////
+
+Cathor meme coin
+
+
+Introducing "Cathor Meme Coin", the pioneering meme coin on the Hathor Network, embodying the relentless pursuit of freedom in the digital realm. Each card crafted with After Effects and every 3D project represent a vision of a world where currency is not just a medium of exchange, but also a medium of expression. Cathor signifies a break from traditional systems, offering an alternative for those who believe in a decentralized economy and the power of the individual.
+Join us on this journey, where every transaction is a step closer to a freer future.
+
+
+
+Cathor ($chtor) aims to be the first meme coin on the Hathor Network. 
+
+/////////////////////////////////////////////////////////////////:
+
+bitcoin in motion
+
+a dynamic NFT
+that displays the real-time price of Bitcoin
+
+
+Each edition of Bitcoin in Motion is unique, capturing a specific moment in time as the BTC market continues to evolve. The constantly fluctuating price of Bitcoin floats across your screen, representing the king of crypto's continued volatility.
+The higher the change over 24 hours, positive or negative, the faster the choreography of shapes and lines.
+This NFT is Responsive: Adapts to your screen.
+Press S to save an image in .PNG format.
+Press SPACE to attach Bitcoin price to your mouse.
+Be patient, it may take some time to get the BTC price (DATA Provided by CoinGecko).
+
+////////////////////////////////////////////////////
+
+PĪØИΞΞR$
+
+An Odyssey in Cryptoart
+In 2021, I embarked on a bold journey into the world of cryptoart with my iconic series of animated GIFs, "PĪØИΞΞR$".
+This collection of six works celebrates the legendary figures who shaped the landscape of cryptocurrency and blockchain at the time when I started getting interested in it in 2017. Each GIF is a vibrant tribute to these pioneers, representing not only their influence but also the innovative spirit of the digital era.
+Satoshi Nakamoto: The enigmatic creator of Bitcoin, Vitalik Buterin: The brain behind Ethereum, The Winklevoss Twins: Pioneers in Bitcoin investment, John McAfee: A controversial but undeniably influential figure, CZ (Changpeng Zhao): The founder of Binance, Andre Cronje: Architect of decentralized finance.
+"PĪØИΞΞR$" is more than a series of images; it's a celebration of the pioneering spirit that continues to drive innovation in the world of cryptoart.
+
+//////////////////////////////////////////////////////////////////////
+
+S̿a̿t̿o̿s̿h̿i̿
+
+
+
+The crypto universe is steeped in mysteries, with one of the most intriguing being the true identity of Satoshi Nakamoto. When Dorian Nakamoto was mistakenly pinpointed as Bitcoin's creator, his face became emblematic, morphing into a meme legend. His image, reinterpreted and reimagined, has inspired countless digital artists.
+The "S̿a̿t̿o̿s̿h̿i̿" collection emerges from this fascination. It captures the essence of Dorian Nakamoto, not as Bitcoin's creator, but as the unintentional face of a digital revolution. Each piece in this collection celebrates digital art in its myriad forms, be it captivating graphics, fluid animations, or intricate 3D renderings.
+Diving into "S̿a̿t̿o̿s̿h̿i̿" unveils not just the evolution of Dorian Nakamoto's image in pop culture, but also the diversity and richness of crypto art. It's an invitation to explore, to question, and to marvel at the power of digital creativity.
+
+
+//////////////////////////////////////////////////////////////////////
+
+Anatomy of a Zombie
+The Depths of the Undead
+
+In a dystopian future, where the line between man and monster is blurred, an unprecedented crisis emerged. The living dead roamed the streets, and humanity sought refuge from the undead menace. While panic spread, the scientific community turned to the most advanced tools at their disposal. Driven by desperation and innovation, a new approach emerged through the collaboration of man and machine.
+In this visually striking series, rendered with a comic book flair and desaturated hues, a story unfolds. From the eerie calm of a post-apocalyptic world to the bustling labs of dedicated researchers, the tale dives deep into the anatomy of the undead. But this isn't just a visual feast; it's an exploration, a deep dive into what makes these creatures tick.
+The highlight of this series is the groundbreaking use of Artificial Intelligence. As Dr. Niftycraft once said, "After shedding new light on zombies, Artificial Intelligence is called upon to help doctors treat infected patients. Now the program creates a real-time 3D model of a zombie's anatomy, informing how it rots and how to treat it." This statement epitomizes the merger of science fiction and reality in this gripping narrative.
+Join us on this journey, where technology aids in understanding the very creatures that threaten our existence. Experience the blend of art and science, where every frame tells a story, and every story pushes the boundaries of imagination.
+
+
+////////////////////////////////////
+
+super punks
+
+Where
+Anarchy
+Meets the
+Multiverse
+"Super Punks" is not just a project. It's a scream of rebellion. In this universe, the neat and shiny capes and tights of classic DC and Marvel superheroes are drowned beneath the vivid colors of graffiti, safety pins, and chains. Welcome to a world where insubordination is the new superpower.
+Anarchy's Technology: MidJourney
+Instead of confining myself to traditional tools, I turned to the cutting-edge technology of MidJourney to craft these raw images. MidJourney was the catalyst, merging fragments from different realities to birth this organized chaos.
+Rebellion's Multiverse
+Each version of our beloved superheroes is a gateway to another multiverse, where notions of heroism and justice are constantly reimagined. In this interdimensional space, fluidity of identity reigns supreme. A mohawked Spider-Man? An anarcho-punk styled Batman with tattoos? Why not? In the multiverse, anything goes.
+​​​​​​​"Super Punks" disrupts norms. It calls for challenging the polished, marketed image of the modern superhero. It's an invitation to rethink what it means to be a hero in an era of constant unrest. Is it the symbol on the chest or the passion in the heart that matters most?
+In this chaotic landscape where the old world meets the new, "Super Punks" offers a meditation on the fluidity of identity through the lens of the multiverse. It's a fractured mirror, each shard providing a new angle, a fresh echo of rebellion. If you thought you knew your heroes, think again. In the punk multiverse, all the rules are broken.
+
+/////////////////////////////////////////////
+
+Voyage en orient 2.0
+
+Entre juin et septembre 1851, Gustave Flaubert agé de 28 ans fait avec son ami Maxime de Camp un voyage de sept mois en Egypte. Ils remontent le Nil d’Alexandrie jusqu’en Nubie puis redescendent avec une excursion de traverse vers la mer Rouge.
+Durant le voyage Flaubert, ébloui et ému, tient un journal de ses rencontres avec les hommes, les femmes et le pays. D’une écriture très picturale et puissamment évocatrice, parfois crue, ce journal est riche en miniatures saisissantes de perfection. Plus qu’une évocation des monuments rencontrés qui souvent l’ennuient, Flaubert y exprime un souci particulier pour le paysage, la couleur et la lumière, prétexte à des esquisses éblouissantes.
+L'adaptation que nous proposons est un film sans acteur, sans camera et surtout un voyage immobile, il prend la route que Gustave Flaubert emprunte pour remonter le Nil dans l'Internet d’aujourd’hui.
+Deux temporalités coexistent tout au long du documentaire l'une serait comme une interprétation de la partition de cette mémoire collective qui se construit dans le cyberespace, l'autre le texte que Gustave Flaubert a bien voulu nous laisser dans son journal de voyage.
+Ce film est une une enquête sur les représentations du monde dans la toile, une enquête et un voyage dans le monde digitalisé, illustré par les photographies, sons et vidéos trouvées sur ce chemin virtuel vers l'orient dans des sites tels que Opens street map, Google maps, aporee, YouTube et bien d'autres...
+Scénario : Marcos Riesco
+Capture, Compositing & Montage : Smldms & Pierrick Point
+Sound Design : François Donato
+
+////////////////////////////////////////:
+
+ŁȺnđsȼȺᵽɇ vɨƀɍȺŧɨøn
+In my series of nine video loops, the glitch redefines the digital landscape, merging video art with the beauty of technological imperfection. Each landscape, meticulously glitched, becomes a canvas where digital distortions reveal a new aesthetic dimension. These visual imperfections, often perceived as errors, are here celebrated as unique design elements. They express the fragility and complexity of our digitized world, transforming ordinary scenes into captivating visual experiences. This series explores the relationship between nature and technology, finding unexpected beauty in the intersection of the real and the digital.
+
+//////////////////////////////////////////////
+
+in a loop
+The Souls of the Bellegarde Multimedia Center
+In the heart of Toulouse, the Bellegarde Multimedia Center has established itself as a major crossroads between technology, art and community. To celebrate the 10th anniversary of this iconic structure, I designed a special artwork, merging innovation and familiarity.
+“In A Loop” is a personal collection of cinemagraphs that I created, featuring 30 of my colleagues from the Bellegarde center. Each portrait, while largely static, features a subtly animated detail, reflecting the essence of their role within the center – from technical officer to gardener, accountant to sound recordist, and many more Again.
+The exhibition took on a special dimension, with the works being displayed on a wall of iPads, thus offering visitors an immersive and interactive experience. This project had the honor of being presented alongside works by recognized artists such as Grégory Chatonsky and François Donato, marking a memorable step in my journey as a digital artist.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+buy on Objkt.com
+
