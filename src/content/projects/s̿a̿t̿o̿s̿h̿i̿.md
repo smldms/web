@@ -3,7 +3,7 @@ title: S̿a̿t̿o̿s̿h̿i̿
 categories:
   - post-photography
 description: A Digital Art Reflection on Identity
-coverImage: /images/uploads/bd096042-8b12-4eed-9f82-76c7dd12bb2d_rw_1200.png
+coverImage: /images/uploads/2e8488e1-0180-4a28-a698-b70d279aa7c9_rw_600.gif
 gallery:
   - /images/uploads/16.gif
   - /images/uploads/18.gif
@@ -19,6 +19,7 @@ gallery:
   - /images/uploads/51.gif
   - /images/uploads/91.gif
   - /images/uploads/85.gif
+  - /images/uploads/bd096042-8b12-4eed-9f82-76c7dd12bb2d_rw_1200.png
 featured: false
 date: 2022-03-12T23:23:00.000Z
 ---
