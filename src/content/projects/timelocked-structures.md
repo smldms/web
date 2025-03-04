@@ -4,7 +4,7 @@ categories:
   - runtime-art
 description: Immutable Echoes of the Blockchain
 coverImage: /images/uploads/timelocked-structures.png
-youtubeVideo: https://youtu.be/Hp2c7GCVhMQ
+youtubeVideo: https://youtu.be/-AoYPneH3II
 externalLink: https://gamma.io/ordinals/collections/timelocked-structures
 featured: false
 date: 2025-02-23T17:29:00.000Z
