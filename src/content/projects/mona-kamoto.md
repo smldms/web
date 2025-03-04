@@ -3,7 +3,9 @@ title: Mona Kamoto
 categories:
   - post-photography
 description: Put the Laser Eyes On
-coverImage: /images/uploads/téléchargement-3-.jpg
+coverImage: /images/uploads/493d0ec4-e97c-4eaf-ad81-eef0b049d3e8_rw_1920.png
+gallery: []
+youtubeVideo: https://youtube.com/shorts/FqPFU14DSoE
 featured: false
 date: 2025-03-04T21:00:00.000Z
 ---
