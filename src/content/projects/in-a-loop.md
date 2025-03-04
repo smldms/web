@@ -3,7 +3,8 @@ title: In A Loop
 categories:
   - post-photography
 description: In the Heart of Bellegarde [Toulouse]
-coverImage: /images/uploads/téléchargement-3-.jpg
+coverImage: /images/uploads/1a120aff-9dea-419e-a8fa-b702263c8a72.jpg
+gallery: []
 featured: false
 date: 2016-05-05T23:23:00.000Z
 ---
