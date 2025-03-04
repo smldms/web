@@ -14,7 +14,7 @@ gallery:
   - /images/uploads/Polar_Color_BLACK_AND_WHITE_Shape_4.jpg
   - /images/uploads/Polar_Color_WHITE_AND_BLACK_Shape_1 (3).jpg
 featured: false
-date: 2022-05-20T10:00:00.000Z
+date: 2022-12-12T03:23:00.000Z
 ---
 In a constantly bustling world where complexity reigns supreme, "Polar" stands alone. This creation in p5.js defies conventions, firmly aligning itself with the lineage of minimalist art. Here, there are no frills, no artifice. Only the purity of form matters, the raw simplicity that emanates from every line and shade of gray. Each line, each curve is an expression of mathematical precision, devoid of any excess.
 The color palette is also stripped down to the essentials. Two opposing colors, white and black, clothe the stage. This duality creates a powerful contrast, a palpable visual tension. The choice to invert these colors or differentiate them adds a layer of complexity to this apparent simplicity, creating an unstable equilibrium.
