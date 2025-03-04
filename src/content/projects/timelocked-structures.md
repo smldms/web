@@ -3,8 +3,9 @@ title: Timelocked Structures
 categories:
   - runtime-art
 description: Immutable Echoes of the Blockchain
-coverImage: /images/uploads/A MINIMAL STORY OF
-  SQUARES_Citrus_ooyujDqzREXrMcS2HFA9pK7wYaz4jPA4jyWJJQAZUQDCi82theQ.jpg
+coverImage: /images/uploads/timelocked-structures.png
+youtubeVideo: https://youtu.be/Hp2c7GCVhMQ
+externalLink: https://gamma.io/ordinals/collections/timelocked-structures
 featured: false
 date: 2025-02-23T17:29:00.000Z
 ---
