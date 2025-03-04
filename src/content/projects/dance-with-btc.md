@@ -4,6 +4,7 @@ categories:
   - runtime-art
 description: A Generative and Dynamic Artwork
 coverImage: /images/uploads/téléchargement-3-.jpg
+externalButtonText: https://smldms.com
 featured: false
 date: 2025-03-04T21:00:00.000Z
 ---
