@@ -3,7 +3,12 @@ title: Voyage en Orient 2.0
 categories:
   - post-photography
 description: Gustave en Egypte
-coverImage: /images/uploads/téléchargement-3-.jpg
+coverImage: /images/uploads/25a88c82-7bc6-4e30-8d9f-243f87d794fd_rw_1920.jpg
+gallery:
+  - /images/uploads/d6611516-5930-43c4-accd-94e00c463633_rw_1920.jpg
+  - /images/uploads/3542ac08-6f57-4736-9304-c7dd062319b5_rw_1920.jpg
+  - /images/uploads/920fa459-40bf-4c25-8367-3f8aa602befd_rw_1920.jpg
+  - /images/uploads/095bde0b-4851-4160-950f-942141d0189e_rw_1920.jpg
 youtubeVideo: https://www.youtube.com/watch?v=6ifQ22YhC4Q
 featured: false
 date: 2015-02-23T23:23:00.000Z
