@@ -3,7 +3,7 @@ title: Polar
 categories:
   - generative-art
 description: Radical Simplicity
-coverImage: /images/uploads/Polar_Color_BLACK_AND_WHITE_Shape_1 (3).jpg
+coverImage: /images/uploads/téléchargement-3-.jpg
 gallery: []
 featured: false
 date: 2022-12-12T03:23:00.000Z
