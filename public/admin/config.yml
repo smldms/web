@@ -54,13 +54,6 @@ collections:
           hint: "Ajoute un lien externe pour ce projet"
         }
       - {
-          label: "Texte du bouton externe",
-          name: "externalButtonText",
-          widget: "string",
-          required: false,
-          hint: "Texte du bouton pour rediriger vers un lien externe"
-        }
-      - {
           label: "Featured",
           name: "featured",
           widget: "boolean",
