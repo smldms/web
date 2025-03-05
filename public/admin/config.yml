@@ -61,6 +61,14 @@ collections:
         }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Contenu", name: "body", widget: "markdown" }
+      - {
+          label: "P5.js Code",
+          name: "p5jsCode",
+          widget: "text",
+          required: false,
+          hint: "Collez ici le code JavaScript de votre sketch P5.js"
+        }
+
 
   - name: "soundtracks"
     label: "Sound Project"

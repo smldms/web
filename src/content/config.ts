@@ -13,6 +13,7 @@ const projectsCollection = defineCollection({
     youtubeVideo: z.string().optional(),
     externalLink: z.string().optional(),
     featured: z.boolean().default(false),
+    p5jsCode: z.string().optional(),
   }),
 });
 

@@ -1,42 +1,32 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 
-// 🔍 Récupérer les projets depuis Astro Content
+const { project } = Astro.props;
+const sketchCode = project.data.p5jsCode || ''; // Assure que ce n'est jamais undefined
+const canvasId = `p5-canvas-${project.slug}`;
+
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
-
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
   }));
 }
 
-// Récupérer le projet en cours
-const { project } = Astro.props;
-
-// Rendre le contenu Markdown en HTML
 const { Content } = await project.render();
 
-// Fonction pour extraire l'ID de la vidéo YouTube
 function getYoutubeVideoId(url) {
   if (!url) return null;
-  
-  // Formats possibles: 
-  // - https://www.youtube.com/watch?v=VIDEO_ID
-  // - https://youtu.be/VIDEO_ID
-  // - https://youtube.com/embed/VIDEO_ID
-  
   const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
   const match = url.match(regExp);
-  
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
-// Récupérer l'ID de la vidéo YouTube si elle existe
 const youtubeVideoId = project.data.youtubeVideo ? getYoutubeVideoId(project.data.youtubeVideo) : null;
 
-// Formater la date
 function formatDate(dateString) {
   const date = new Date(dateString);
   return new Intl.DateTimeFormat('fr-FR', {
@@ -50,8 +40,11 @@ const formattedDate = formatDate(project.data.date);
 ---
 
 <Layout>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+
+  <Header />
+  
   <article class="project-detail">
-    <!-- Hero Section avec image de couverture -->
     <div class="hero-section" style={`background-image: url(${project.data.coverImage});`}>
       <div class="hero-overlay">
         <div class="container">
@@ -71,15 +64,12 @@ const formattedDate = formatDate(project.data.date);
     </div>
 
     <div class="container">
-      <!-- Description du projet -->
       <div class="project-description">
         <p>{project.data.description}</p>
       </div>
 
-      <!-- Contenu principal -->
       <div class="project-main">
         <div class="project-sidebar">
-          <!-- Informations du projet -->
           <div class="project-info">
             <h3 class="cyber-heading">Informations</h3>
             <ul>
@@ -110,13 +100,10 @@ const formattedDate = formatDate(project.data.date);
         </div>
 
         <div class="project-content-wrapper">
-          <!-- 🔥 Intégration de la vidéo YouTube si elle existe -->
           {youtubeVideoId && (
             <div class="youtube-container">
               <div class="video-glitch-wrapper">
                 <iframe 
-                  width="560" 
-                  height="315" 
                   src={`https://www.youtube.com/embed/${youtubeVideoId}`} 
                   title="YouTube video player" 
                   frameborder="0" 
@@ -127,15 +114,16 @@ const formattedDate = formatDate(project.data.date);
               </div>
             </div>
           )}
-
-          <!-- 🔥 Rendre le texte enrichi Markdown -->
           <div class="project-content">
             <Content />
           </div>
         </div>
       </div>
+      
+      <div class="p5js-container">
+      <div id={canvasId} class="p5-canvas"></div>
+      </div>
 
-      <!-- 🔥 Afficher la galerie -->
       {project.data.gallery && project.data.gallery.length > 0 && (
         <div class="project-gallery">
           <h2 class="gallery-title glitch" data-text="Galerie">Galerie</h2>
@@ -152,9 +140,60 @@ const formattedDate = formatDate(project.data.date);
         </div>
       )}
 
-      <!-- Navigation entre projets -->
+     
+
+        <script is:inline define:vars={ { sketchCode, canvasId } }>
+          document.addEventListener("DOMContentLoaded", () => {
+  if (!window.p5) {
+    console.error("p5.js n'est pas chargé !");
+    return;
+  }
+
+  console.log("Code P5.js récupéré :", sketchCode);
+  //console.log("ID du conteneur canvas :", canvasId);
+
+  try {
+    new p5((p) => {
+      p.setup = function () {
+        const parentDiv = document.getElementById(canvasId);
+        if (parentDiv) {
+          //console.log("✅ Conteneur trouvé :", parentDiv);
+          const canvas = p.createCanvas(window.innerWidth, window.innerHeight);
+         //console.log("✅ Canvas créé :", canvas);
+          canvas.parent(parentDiv);
+        } else {
+          console.error("❌ Le conteneur P5.js n'existe pas !");
+        }
+      };
+
+      p.draw = function () {
+        p.background(255, 0, 0);
+        p.fill(255, 255, 255);
+        p.ellipse(p.mouseX, p.mouseY, 50, 50);
+      };
+    });
+
+    // ✅ Attendre un peu avant de vérifier si le canvas est bien là
+    setTimeout(() => {
+      const canvas = document.querySelector("canvas");
+      if (canvas) {
+        console.log("✅ Canvas détecté après timeout :", canvas);
+      } else {
+        console.error("❌ Toujours aucun canvas détecté !");
+      }
+    }, 500); // On attend 500ms avant de vérifier
+
+  } catch (error) {
+    console.error("❌ Erreur lors de l'exécution du code P5.js :", error);
+  }
+});
+
+        </script>
+
+
+
       <div class="project-navigation">
-        <a href="../../index.html" class="cyber-button-large">
+        <a href="/" class="cyber-button-large">
           <span></span>
           <span></span>
           <span></span>
@@ -164,6 +203,8 @@ const formattedDate = formatDate(project.data.date);
       </div>
     </div>
   </article>
+
+  <Footer />
 </Layout>
 
 <style>
@@ -195,6 +236,32 @@ const formattedDate = formatDate(project.data.date);
     background-color: var(--color-background);
     color: var(--color-text);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  /* Styles existants... */
+
+  /* P5.js Container Styles */
+  .p5js-container {
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(74, 108, 247, 0.3);
+    position: relative;
+  }
+
+  .p5-canvas {
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p5-canvas canvas {
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   .container {
