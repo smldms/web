@@ -8,8 +8,7 @@ featured: false
 date: 2025-03-04T20:58:00.000Z
 p5jsCode: |-
   function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
-
+    createCanvas(500,500);
     background(200,10,25);
   }
 ---
