@@ -9,7 +9,7 @@ date: 2025-03-05T11:09:00.000Z
 p5jsCode: |-
   function setup() {
     createCanvas(400, 400);
-    background(0);
+    background(255,0,0);
   }
 
   function draw() {
