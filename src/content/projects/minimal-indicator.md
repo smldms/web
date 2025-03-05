@@ -8,7 +8,7 @@ featured: false
 date: 2025-03-04T20:58:00.000Z
 p5jsCode: >-
   function setup() {
-    createCanvas(window.innerWidht, window.innerHeight);
+    createCanvas(window.innerWidth, window.innerHeight);
 
     background(200);
 
