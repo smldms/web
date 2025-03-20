@@ -8,9 +8,11 @@ featured: false
 date: 2025-03-04T20:58:00.000Z
 p5jsCode: |-
   function setup() {
-    createCanvas(500,500);
-    background(200,10,25);
-  }
+    createCanvas(400, 400);}
+  
+  function draw() {
+    background(220);
+    ellipse(mouseX, mouseY, 50, 50);}
 ---
 *"Minimal Indicator"* is a generative and dynamic artwork created from the **change of Bitcoin in 24 hours**.  
 

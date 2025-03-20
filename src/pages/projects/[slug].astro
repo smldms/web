@@ -37,6 +37,7 @@ function formatDate(dateString) {
 }
 
 const formattedDate = formatDate(project.data.date);
+
 ---
 
 <Layout>
@@ -141,54 +142,61 @@ const formattedDate = formatDate(project.data.date);
       )}
 
      
+<script is:inline define:vars={{ sketchCode: JSON.stringify(sketchCode), canvasId }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("🚀 DOM chargé, initialisation de p5.js...");
 
-        <script is:inline define:vars={ { sketchCode, canvasId } }>
-          document.addEventListener("DOMContentLoaded", () => {
-  if (!window.p5) {
-    console.error("p5.js n'est pas chargé !");
-    return;
-  }
+    if (!window.p5) {
+      console.error("❌ p5.js n'est pas chargé !");
+      return;
+    }
 
-  console.log("Code P5.js récupéré :", sketchCode);
-  //console.log("ID du conteneur canvas :", canvasId);
+    const parentDiv = document.getElementById(canvasId);
+    if (!parentDiv) {
+      console.error("❌ Aucun élément trouvé avec l'ID:", canvasId);
+      return;
+    }
 
-  try {
-    new p5((p) => {
-      p.setup = function () {
-        const parentDiv = document.getElementById(canvasId);
-        if (parentDiv) {
-          //console.log("✅ Conteneur trouvé :", parentDiv);
-          const canvas = p.createCanvas(window.innerWidth, window.innerHeight);
-         //console.log("✅ Canvas créé :", canvas);
-          canvas.parent(parentDiv);
-        } else {
-          console.error("❌ Le conteneur P5.js n'existe pas !");
-        }
-      };
+    // Nettoyage de l'instance précédente
+    if (window.p5instance) {
+      window.p5instance.remove();
+    }
 
-      p.draw = function () {
-        p.background(255, 0, 0);
-        p.fill(255, 255, 255);
-        p.ellipse(p.mouseX, p.mouseY, 50, 50);
-      };
-    });
+    try {
+      // Création d'une fonction à partir du code string
+      const sketchFunction = new Function('p', `
+        ${JSON.parse(sketchCode)}
+        
+        // S'assurer que setup existe
+        p.setup = typeof setup === "function" ? setup : function() {
+          p.createCanvas(400, 400);
+          p.background(220);
+          console.warn("⚠️ setup() par défaut utilisé");
+        };
+        
+        // S'assurer que draw existe (optionnel)
+        p.draw = typeof draw === "function" ? draw : undefined;
+      `);
 
-    // ✅ Attendre un peu avant de vérifier si le canvas est bien là
-    setTimeout(() => {
-      const canvas = document.querySelector("canvas");
-      if (canvas) {
-        console.log("✅ Canvas détecté après timeout :", canvas);
-      } else {
-        console.error("❌ Toujours aucun canvas détecté !");
-      }
-    }, 500); // On attend 500ms avant de vérifier
+      // Création de l'instance p5
+      window.p5instance = new p5(sketchFunction, parentDiv);
+      
+      console.log("✅ Sketch p5.js initialisé avec succès");
+    } catch (error) {
+      console.error("❌ Erreur lors de l'initialisation du sketch p5.js:", error);
+    }
+  });
+</script>
 
-  } catch (error) {
-    console.error("❌ Erreur lors de l'exécution du code P5.js :", error);
-  }
-});
 
-        </script>
+
+
+
+
+
+
+
+
 
 
 
