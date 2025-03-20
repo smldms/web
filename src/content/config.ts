@@ -11,9 +11,9 @@ const projectsCollection = defineCollection({
     coverImage: z.string(),
     gallery: z.array(z.string()).optional(),
     youtubeVideo: z.string().optional(),
+    videoUrl: z.string().optional(),
     externalLink: z.string().optional(),
     featured: z.boolean().default(false),
-    p5jsCode: z.string().optional(),
   }),
 });
 

@@ -2,7 +2,7 @@ import p5 from 'p5';
 
 new p5((sketch) => {
   let particles = [];
-  const particleCount = 500;
+  const particleCount = 250;
   
   sketch.setup = () => {
     const container = document.getElementById('p5-container');
@@ -33,7 +33,7 @@ new p5((sketch) => {
         );
         
         if (d < 150) {
-          sketch.stroke(255, 255, 255, sketch.map(d, 0, 150, 50, 0));
+          sketch.stroke(255, 255, 255, sketch.map(d, 0, 150, 150, 0));
           sketch.line(
             particles[i].pos.x, particles[i].pos.y,
             particles[j].pos.x, particles[j].pos.y

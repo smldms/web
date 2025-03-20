@@ -44,15 +44,15 @@
         "youtubeVideo": {
           "type": "string"
         },
+        "videoUrl": {
+          "type": "string"
+        },
         "externalLink": {
           "type": "string"
         },
         "featured": {
           "type": "boolean",
           "default": false
-        },
-        "p5jsCode": {
-          "type": "string"
         },
         "$schema": {
           "type": "string"
