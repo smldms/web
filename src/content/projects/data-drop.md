@@ -3,7 +3,13 @@ title: Data Drop
 categories:
   - generative-art
 description: The Erosion of Data in the Digital Realm
-coverImage: /images/uploads/téléchargement-3-.jpg
+coverImage: /images/uploads/25_datadrop_by_smldms.jpg
+gallery:
+  - /images/uploads/25_datadrop_by_smldms.jpg
+  - /images/uploads/06_datadrop_by_smldms.jpg
+  - /images/uploads/28_datadrop_by_smldms.jpg
+  - /images/uploads/27_datadrop_by_smldms.jpg
+  - /images/uploads/22_datadrop_by_smldms.jpg
 featured: false
 date: 2025-03-04T20:50:00.000Z
 ---
