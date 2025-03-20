@@ -1,11 +1,12 @@
 ---
 title: Dance with BTC
+coverImage: /images/uploads/dancewithbtc.png
+externalLink: https://smldms.com
+externalButtonText: https://smldms.com
 categories:
   - runtime-art
 description: A Generative and Dynamic Artwork
-coverImage: /images/uploads/téléchargement-3-.jpg
-externalLink: https://smldms.com
-externalButtonText: https://smldms.com
+videoUrl: http://folio.smldms.com/runtime/DanceWithBTC/DanceWithBTC.mp4
 featured: false
 date: 2025-03-04T21:00:00.000Z
 ---
