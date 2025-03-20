@@ -2,7 +2,7 @@ import p5 from 'p5';
 
 new p5((sketch) => {
   let particles = [];
-  const particleCount = 50;
+  const particleCount = 500;
   
   sketch.setup = () => {
     const container = document.getElementById('p5-container');

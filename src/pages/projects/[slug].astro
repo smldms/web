@@ -121,9 +121,6 @@ const formattedDate = formatDate(project.data.date);
         </div>
       </div>
       
-      <div class="p5js-container">
-      <div id={canvasId} class="p5-canvas"></div>
-      </div>
 
       {project.data.gallery && project.data.gallery.length > 0 && (
         <div class="project-gallery">
@@ -140,65 +137,6 @@ const formattedDate = formatDate(project.data.date);
           </div>
         </div>
       )}
-
-     
-<script is:inline define:vars={{ sketchCode: JSON.stringify(sketchCode), canvasId }}>
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("🚀 DOM chargé, initialisation de p5.js...");
-
-    if (!window.p5) {
-      console.error("❌ p5.js n'est pas chargé !");
-      return;
-    }
-
-    const parentDiv = document.getElementById(canvasId);
-    if (!parentDiv) {
-      console.error("❌ Aucun élément trouvé avec l'ID:", canvasId);
-      return;
-    }
-
-    // Nettoyage de l'instance précédente
-    if (window.p5instance) {
-      window.p5instance.remove();
-    }
-
-    try {
-      // Création d'une fonction à partir du code string
-      const sketchFunction = new Function('p', `
-        ${JSON.parse(sketchCode)}
-        
-        // S'assurer que setup existe
-        p.setup = typeof setup === "function" ? setup : function() {
-          p.createCanvas(400, 400);
-          p.background(220);
-          console.warn("⚠️ setup() par défaut utilisé");
-        };
-        
-        // S'assurer que draw existe (optionnel)
-        p.draw = typeof draw === "function" ? draw : undefined;
-      `);
-
-      // Création de l'instance p5
-      window.p5instance = new p5(sketchFunction, parentDiv);
-      
-      console.log("✅ Sketch p5.js initialisé avec succès");
-    } catch (error) {
-      console.error("❌ Erreur lors de l'initialisation du sketch p5.js:", error);
-    }
-  });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
 
       <div class="project-navigation">
         <a href="/" class="cyber-button-large">

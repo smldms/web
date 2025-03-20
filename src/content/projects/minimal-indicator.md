@@ -6,23 +6,6 @@ description: A Generative and Dynamic Artwork
 coverImage: /images/uploads/téléchargement-3-.jpg
 featured: false
 date: 2025-03-04T20:58:00.000Z
-p5jsCode: |-
-  function setup() {
-<<<<<<< HEAD
-    createCanvas(400, 400);}
-  
-  function draw() {
-    background(220);
-    ellipse(mouseX, mouseY, 50, 50);}
-=======
-      createCanvas(400, 400);
-    }
-    
-    function draw() {
-      background(220);
-      ellipse(mouseX, mouseY, 50, 50);
-    }
->>>>>>> 7726119ce40db7ce1da824857710b04d8a6b2703
 ---
 *"Minimal Indicator"* is a generative and dynamic artwork created from the **change of Bitcoin in 24 hours**.  
 
