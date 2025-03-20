@@ -5,7 +5,8 @@ categories:
 description: |
   Fashion collage in B&W
 coverImage: /images/uploads/téléchargement-3-.jpg
-externalLink: http://folio.smldms.com/postphoto/voile/red.mp4
+videoUrl: http://folio.smldms.com/postphoto/voile/red.mp4
+externalLink: ""
 featured: false
 date: 2025-03-04T20:48:00.000Z
 ---
